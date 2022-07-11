@@ -1,0 +1,35 @@
+.search-input {
+    border: none;
+    border: 1px solid orange;
+    font-weight: 600;
+}
+
+.buttonlogin {
+    padding: 10px 11px;
+    font-weight: bold;
+}
+
+.h6location {
+    font-size: 0.67em !important;
+}
+
+.shadowheader { 
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 17px 17px 17px 17px;
+    box-shadow: 0px 0px 23px -3px rgba(126, 126, 126, 0.4);
+    opacity: .9;
+    backdrop-filter: blur(12px);
+}
+
+.taghsellers {
+    font-size: 20px !important;
+    margin: -5px 0 0 6px;
+}
+
+.buttonellers {
+    padding: 14px 33px;
+}

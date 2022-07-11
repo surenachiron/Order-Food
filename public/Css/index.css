@@ -1,15 +1,44 @@
-/*@font-face {*/
-/*    font-family: BYekan;*/
-/*    src: url("Font/BYekan-webfont.eot") format("eot"),*/
-/*    url("Font/BYekan-webfont.ttf") format("ttf"),*/
-/*    url("Font/BYekan-webfont.woff") format("woff");*/
-/*}*/
-*{
-    margin: 0;
-    font-family: Calibri;
-    text-align: center;
-    font-weight: 100;
+@font-face {
+    font-family: Apercu;
+    src: url("./Font/Apercu Font Family/ApercuBold.otf") format("otf")
 }
+
+* {
+    margin: 0;
+    font-family: 'ProximaNova,arial,Helvetica Neue,sans-serif';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 600 !important;
+    line-height: 1.5rem !important;
+}
+
 * img {
     border-radius: 7px;
+}
+
+li {
+    margin-bottom: 7px;
+    list-style-type: none;
+    cursor: pointer;
+}
+@keyframes example {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 70%;
+    }
+}
+
+li:hover {
+    width: 70%;
+    border-bottom: 2px solid orange;
+    animation-name: example !important;
+    animation-duration: 1s !important;
 }

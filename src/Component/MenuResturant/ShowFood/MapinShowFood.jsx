@@ -1,28 +1,26 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import ShowFoodcom from "./ShowFoodcom";
-import ContextOrderFood from "../../../Context/ContextOrderFood";
+import ContextOrderFood from "../../../context/ContextOrderFood.js";
 
-const MapinShowFood = ({classHiddenandShowDivaddvtrashvmines,classHiddenandshowbuttonadd,
-                           classhiddeenshowlowoff,classhiddenshowtrash}) => {
+const MapinShowFood = () => {
 
     const context = useContext(ContextOrderFood)
 
-    return(
+    return (
         <div className="row row-cols-1 row-cols-md-2 g-4 w-100 m-auto h-100">
             {context.Food.map(o => (
                 <ShowFoodcom
-                    picture = {o.picture}
-                    nameFood = {o.namefood}
-                    descriptionFood = {o.descriptionfood}
-                    price = {o.price}
-                    plusnumberandaddfoodtocard = {context.functionAddNumberToStateAndAddFoodtoCard(o.id)}
-                    LowoffnumberandLowofffoodtocard = {context.functionLowoffNumberToStateAndLowoffFoodToCard(o.id)}
-                    removenuberandremovefoodtocard = {context.functionRemoveNumbeToStateAndRemovefoodtocard(o.id)}
+                    picture={o.picture}
+                    nameFood={o.namefood}
+                    descriptionFood={o.descriptionfood}
+                    price={o.price}
+                    classadd={o.classadd}
+                    classdelet={o.classdelet}
+                    numberorderr={o.numberorder}
 
-                    clhishdivaddtrashlowoff ={classHiddenandShowDivaddvtrashvmines}
-                    clhishbuttonadd ={classHiddenandshowbuttonadd}
-                    clhishlowwoff = {classhiddeenshowlowoff}
-                    clahishtrach = {classhiddenshowtrash}
+                    AddedOrder={() => context.AddedOrder(o.id)}
+                    deletorder={() => context.deletorder(o.id)}
+                    Minesorder={() => context.Minesorder(o.id)}
                 >
                 </ShowFoodcom>
             ))}

@@ -3,13 +3,16 @@ import {createContext} from "react";
 
 const ContextOrderFood = createContext({
     Food : [],
-    picture : [],
-    numberfoodadded : "" ,
-
-    functionAddNumberToStateAndAddFoodtoCard : (id) => {},
-    functionLowoffNumberToStateAndLowoffFoodToCard : (id) => {},
-    functionRemoveNumbeToStateAndRemovefoodtocard : (id) => {},
-    img : []
+    FoodOrders : [],
+    img : [],
+    AddedOrder : () => {},
+    deletorder : () => {},
+    Minesorder : () => {},
+    AddinOrderFood : () => {},
+    MinesinOrderFood : () => {},
+    DeletinOrderFood : () => {},
+    ClearStateOrderFood : () => {},
+    lengthFoodOrder : '',
 })
 
 export default ContextOrderFood;
