@@ -86,7 +86,7 @@ const Register = () => {
 
                 <div className="row" style={{ height: "100vh" }}>
                     <div className="col-12 col-xl-4 col-lg-3 col-md-3"></div>
-                    <div className="col-12 col-xl-4 col-lg-6 col-md-6 d-flex align-items-center justify-content-center">
+                    <div className="col-12 col-xl-4 col-lg-6 col-md-6 d-flex align-items-center justify-content-center p-4">
                         <div className="d-flex flex-column align-items-start justify-content-start">
 
                             <div className="d-flex justify-content-between w-100">
@@ -102,7 +102,7 @@ const Register = () => {
 
                             <label for='fullname' className="mt-2 forlabel">Your name</label>
 
-                            <input type='text' id="fullname" name="fullname" className="mt-2 w-100 text-start boxshadowbutton" placeholder="Firt and last name" onChange={event => {
+                            <input type='text' id="fullname" name="fullname" className="form-control mt-2 w-100 text-start" onChange={event => {
                                 setFullname(event.target.value)
                                 Validator.current.showMessageFor('fullname')
                             }} />
@@ -111,7 +111,7 @@ const Register = () => {
                             <label for='email' className="mt-3 forlabel">Mobile number or email
                             </label>
 
-                            <input type='text' id="email" namer="email" className="mt-2 w-100 text-start boxshadowbutton" onChange={event => {
+                            <input type='text' id="email" namer="email" className="form-control mt-2 w-100 text-start" onChange={event => {
                                 setEmail(event.target.value)
                                 Validator.current.showMessageFor('email')
                             }} />
@@ -119,7 +119,7 @@ const Register = () => {
 
                             <label for='password' className="forlabel mt-3">Enter password</label>
 
-                            <input type='password' id="password" name="password" className='mt-2 w-100 text-start boxshadowbutton' placeholder="At least 6 characters" onChange={event => {
+                            <input type='password' id="password" name="password" className='form-control mt-2 w-100 text-start' placeholder="At least 6 characters" onChange={event => {
                                 setPassword(event.target.value)
                                 Validator.current.showMessageFor('password')
                             }} />

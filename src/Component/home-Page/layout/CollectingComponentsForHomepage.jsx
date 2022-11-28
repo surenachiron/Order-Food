@@ -1,7 +1,5 @@
 import React, { Fragment } from "react";
 import Helmet from "react-helmet";
-import Footer from "../../Footer/Footer";
-import Header from "../../header/Header";
 import Firstsection from "../1-firstSection/Firstsection";
 import Seconssection from "../2-secondsection/Secondsection";
 import Thirdsection from "../3-thirdsection/Thirdsection";
@@ -10,7 +8,7 @@ import Fifthsection from '../5-fifthsection/Fifthsection'
 
 const CollectingComponentsForHomepage = () => {
 
-    return(
+    return (
         <Fragment>
             <Helmet>
                 <title>chef-food</title>

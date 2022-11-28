@@ -6,15 +6,16 @@ const Firstsection = () => {
     return (
         <Fragment>
             <div className="backgroundfirstsection">
-                <div className="mx-5">
+                <div className="mx-5 d-flex h-100 ">
                     <div className="row">
-                        <div className="col-12 col-lg-8 col-md-10 col-sm-12 d-flex flex-column align-items-start justify-content-center divcollesftsection1">
-                            <h1 className="forh1firstsection">WELLCOME TO CHEF-FOOD</h1>
-                            <p className="text-white mt-2">Online ordering of food, fruit, bread, sweets and...</p>
-                            <button className="btn btn-warning p-3 mt-2" >
-                                <a href="#StartOrderFood" style={{ textDecoration: "none", color: 'black' }}>
+                        <div className="col-12 col-lg-12 col-md-10 col-sm-12 d-flex flex-column align-items-start justify-content-center divcollesftsection1">
+                            <h3 className="forh1firstsection">WELLCOME TO CHEF-FOOD</h3>
+                            <p className="text-white mt-3 fw-bold">Online ordering of food, fruit, bread, sweets and...</p>
+                            <a href="#StartOrderFood" style={{ textDecoration: "none", color: 'black' }}>
+                                <button className="btn btn-warning p-3 mt-3 fw-bold" >
                                     start Food in Chef-Food
-                                </a></button>
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>

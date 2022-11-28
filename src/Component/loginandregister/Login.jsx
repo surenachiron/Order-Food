@@ -70,7 +70,7 @@ const Login = () => {
     return (
         <Fragment>
 
-            {testforloading ? (<div className="container"><div className="d-flex flex-column align-items-center justify-content-center" style={{height:"100vh"}}>
+            {testforloading ? (<div className="container"><div className="d-flex flex-column align-items-center justify-content-center" style={{ height: "100vh" }}>
                 <ReactLoading type={"spin"} color={"orange"} height={172} width={149} />
                 <h4>Checking information</h4>
             </div></div>) : ""}
@@ -84,7 +84,7 @@ const Login = () => {
 
                     <div className="col-12 col-xl-4 col-lg-3 col-md-3"></div>
 
-                    <div className="col-12 col-xl-4 col-lg-6 col-md-6 d-flex align-items-center justify-content-center">
+                    <div className="col-12 col-xl-4 col-lg-6 col-md-6 d-flex align-items-center justify-content-center px-4">
 
                         <div className="d-flex flex-column align-items-start justify-content-start">
 
@@ -107,7 +107,7 @@ const Login = () => {
                                     <div className="input-group">
 
                                         <label for='inputEmail' className="mt-2 forlabel">enter Email</label>
-                                        <input type='email' name="email" id="inputEmail" className="form-control mt-2 w-100 text-start boxshadowbutton" value={getemail} aria-describedby="email-address" aria onChange={e => {
+                                        <input type='email' name="email" id="inputEmail" className="form-control mt-2 w-100 text-start" value={getemail} aria-describedby="email-address" aria onChange={e => {
                                             setEmail(e.target.value);
                                             Validator.current.showMessageFor('email')
                                         }} />
@@ -134,15 +134,17 @@ const Login = () => {
                                 </form>
                             </div>
 
-                            <p className="fortagp">
-                                Your entry means acceptance of
-                                <NavLink to='/'> website terms </NavLink>
-                                and
-                                <NavLink to='/'> privacy rules </NavLink>
-                            </p>
-                            <div className="d-flex flex-column align-items-center m-auto">
-                                <p className="mb-1">New To chef-food ?</p>
-                                <NavLink to='/register' className='fornavlinkcreateaccunt'>Create your Chef-Food account</NavLink>
+                            <div className="w-100">
+                                <p className="fortagp">
+                                    Your entry means acceptance of
+                                    <NavLink to='/'> website terms </NavLink>
+                                    and
+                                    <NavLink to='/'> privacy rules </NavLink>
+                                </p>
+                                <div className="d-flex flex-column align-items-center m-auto">
+                                    <p className="mb-1">New To chef-food ?</p>
+                                    <NavLink to='/register' className='fornavlinkcreateaccunt'>Create your Chef-Food account</NavLink>
+                                </div>
                             </div>
                         </div>
                     </div>

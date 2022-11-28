@@ -8,13 +8,12 @@
 }
 
 .divcollesftsection1 {
-    margin-top: 33vh;
+    margin-top: 20vh;
 }
 
 .forh1firstsection {
-    font-size: 2rem !important;
     color: orange;
-    line-height: 100% !important;
+    font-weight: 700;
 }
 
 .divmainsection3 {
@@ -36,6 +35,7 @@
     min-width: initial;
     margin: 3% 0 0 0;
 }
-.formargintopsection4{
+
+.formargintopsection4 {
     margin: 18% 0 18% 0 !important;
 }

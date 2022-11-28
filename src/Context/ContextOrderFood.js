@@ -1,18 +1,19 @@
-import {createContext} from "react";
+import { createContext } from "react";
 
 
 const ContextOrderFood = createContext({
-    Food : [],
-    FoodOrders : [],
-    img : [],
-    AddedOrder : () => {},
-    deletorder : () => {},
-    Minesorder : () => {},
-    AddinOrderFood : () => {},
-    MinesinOrderFood : () => {},
-    DeletinOrderFood : () => {},
-    ClearStateOrderFood : () => {},
-    lengthFoodOrder : '',
+    Food: [],
+    FoodOrders: [],
+    resturant: [],
+    image: [],
+    AddedOrder: () => { },
+    deletorder: () => { },
+    Minesorder: () => { },
+    AddinOrderFood: () => { },
+    MinesinOrderFood: () => { },
+    DeletinOrderFood: () => { },
+    ClearStateOrderFood: () => { },
+    lengthFoodOrder: '',
 })
 
 export default ContextOrderFood;

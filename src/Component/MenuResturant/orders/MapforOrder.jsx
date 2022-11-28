@@ -13,7 +13,7 @@ const MapforOrder = () => {
         Trash =
             <div className="d-flex justify-content-end mx-2 mt-2">
                 <button onClick={context.ClearStateOrderFood} className="faTrashClearOrder">
-                    <FontAwesomeIcon icon={faTrash} className="fa-sm m-auto" color="orange"/>
+                    <FontAwesomeIcon icon={faTrash} className="fa-sm m-auto" color="orange" />
                 </button>
             </div>
     }

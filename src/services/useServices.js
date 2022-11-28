@@ -1,6 +1,6 @@
 import http from './httpsService';
-
 import config from './config.json';
+
 
 export const registerUser = user => {
     return http.post(

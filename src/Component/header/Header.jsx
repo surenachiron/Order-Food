@@ -1,5 +1,6 @@
-import React, { Fragment, useContext, useEffect, useState } from "react";
+import React, { Fragment, useContext, useEffect, useRef, useState } from "react";
 import ContextOrderFood from "../../context/ContextOrderFood";
+import Mobilmenu from "./Mobilmenu";
 import LogoWebSite from './logo.jpg'
 import { NavLink } from "react-router-dom";
 
@@ -10,6 +11,33 @@ import { faMap, faStore, faBars } from '@fortawesome/fontawesome-free-solid'
 import './headdrcss.css'
 
 const Header = () => {
+
+
+    const ref = useRef()
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+    useEffect(() => {
+
+        const checkIfClickedOutside = e => {
+            if (isMenuOpen && ref.current && !ref.current.contains(e.target)) {
+                setIsMenuOpen(false)
+            }
+        }
+
+        document.addEventListener("mousedown", checkIfClickedOutside)
+
+        return () => {
+            document.removeEventListener("mousedown", checkIfClickedOutside)
+        }
+
+    }, [isMenuOpen])
+
+    let showmenumobil;
+    if (isMenuOpen === true) {
+        showmenumobil = <Mobilmenu />
+        console.log("true")
+    }
 
     const [widthscreen, setWidthCcreen] = useState(window.innerWidth);
     const updateDimensions = () => {
@@ -32,98 +60,98 @@ const Header = () => {
         hidenumber = 'block'
     }
 
+
     let largepageOrresponsivpage = ''
     if (widthscreen >= 992) {
         largepageOrresponsivpage =
-            <header className="shadowheader mx-5">
-                <div className="d-flex">
-                    <div id="Logo" className="col-1">
+            <div className="container shadowheader">
+                <div className="row d-flex align-items-center">
+                    <div id="Logo" className="col-lg-1">
                         <NavLink to='/'>
-                            <img src={LogoWebSite} alt='logosite' width="100px" height="100px" />
+                            <img src={LogoWebSite} alt='logosite' width="100px" height="80px" />
                         </NavLink>
                     </div>
-                    <div id="Location" className="col-3 d-flex flex-column align-items-center justify-content-end">
-                        <div className="d-flex flex-column align-items-start">
-                            <h5 className="mx-1">
-                                Selected address
-                            </h5>
-                            <div className="d-flex">
-                                <FontAwesomeIcon icon={faMap} color='orange' className="mx-1" />
-                                <h6 className="mx-1 text-muted">Tehran, Pasdaran</h6>
-                                <p className="mx-1 text-muted">....</p>
-                            </div>
+                    <div id="Location" className="col-lg-3 d-flex flex-column align-items-start justify-content-start">
+                        <p className="mx-1 fw-bold">
+                            Selected address
+                        </p>
+                        <div className="d-flex">
+                            <FontAwesomeIcon icon={faMap} color='orange' className="mx-1" />
+                            <h6 className="mx-1 text-muted">Tehran, Pasdaran</h6>
+                            <p className="mx-1 text-muted">....</p>
                         </div>
                     </div>
-                    <div id="Search" className="col-4 d-flex flex-column align-items-center justify-content-center mx-1">
+                    <div id="Search" className="col-lg-4 d-flex align-items-center justify-content-center">
                         <input type="Search" className="px-5 py-2 rounded search-input" placeholder="Search in the restaurant" />
                     </div>
-                    <div className="col-2 d-flex align-items-center justify-content-center">
-                        <NavLink to='/forsellers' id="RegistrationOfSellers" className="btn d-flex btn-danger buttonellers">
+                    <div className="col-lg-2 d-flex align-items-center justify-content-center">
+                        <button className="btn d-flex btn-danger buttonellers">
                             <FontAwesomeIcon icon={faStore} color='orange' />
                             <h5 className="taghsellers">sellers</h5>
-                        </NavLink>
+                        </button>
                     </div>
-                    <div id="LoginOrSubmit" className="col-2 d-flex align-items-center justify-content-center">
-                        <NavLink to="/login" className="btn btn-warning buttonlogin">Sign in or join</NavLink>
+                    <div id="LoginOrSubmit" className="col-lg-2 d-flex align-items-center justify-content-center">
+                        <NavLink to="/login" className="btn btn-warning buttonlogin p-2">Sign in or join</NavLink>
                     </div>
                 </div>
-            </header>
+            </div>
     } else if (widthscreen >= 768) {
         largepageOrresponsivpage =
-            <header>
-                <div className="container">
-                    <div className="row d-flex align-items-center">
-                        <div className="col-12 col-md-1">
-                            <NavLink to="/shoppingcart" className="btn d-flex">
-                                <FontAwesomeIcon icon="shopping-cart" className="text-danger" />
-                                <strong className={hidenumber} style={{ color: "white", background: "red", borderRadius: "50%", marginLeft: "1px", padding: "2px" }}>
-                                    {numberOrders}
-                                </strong>
-                            </NavLink>
-                        </div>
-                        <div className="col-12 col-md-1">
-                            <FontAwesomeIcon icon={faMap} className='text-warning' />
-                        </div>
-                        <div className="col-12 col-md-8 d-flex align-items-center justify-content-center">
-                            <input type="Search" className="px-1 py-1 mt-2 rounded search-input" placeholder="Search in the restaurant" />
-                        </div>
-                        <div className="col-12 col-md-1"></div>
-                        <div className="col-12 col-md-1">
-                            <FontAwesomeIcon icon={faBars} />
-                        </div>
+            <div className="container shadowheader p-2">
+                <div className="row d-flex align-items-center" ref={ref}>
+                    <div className="col-md-1"></div>
+                    <div className="col-md-1">
+                        <FontAwesomeIcon icon={faBars} onClick={() => setIsMenuOpen(oldState => !oldState)} style={{ cursor: "pointer" }} />
                     </div>
+                    <div className="col-md-7 d-flex align-items-center justify-content-center">
+                        <input type="Search" className="px-5 py-1 rounded search-input" placeholder="Search in the restaurant" />
+                    </div>
+                    <div className="col-md-3">
+                        <NavLink to="/shoppingcart" className="btn">
+                            <button type="button" className="btn position-relative">
+                                <FontAwesomeIcon icon="shopping-cart" className="text-danger" />
+                                <span className={`${hidenumber} position-absolute top-0 start-100 shopingcard-header badge rounded-pill bg-primary`}>{numberOrders}
+                                </span>
+                            </button>
+                        </NavLink>
+                        <FontAwesomeIcon icon={faMap} className='text-warning' />
+                    </div>
+                    {showmenumobil}
                 </div>
-            </header>
+            </div >
     } else {
         largepageOrresponsivpage =
-            <header>
-                <div className="container">
-                    <div className="row m-auto d-flex justify-content-end align-items-center">
-                        <div className="col-3 col-sm-3 d-flex justify-content-end align-items-center">
-                            <NavLink to="/shoppingcart" className="btn pe-2">
-                                <FontAwesomeIcon icon="shopping-cart" className="text-danger" />
-                                <strong className={hidenumber} style={{ color: "white", background: "red", borderRadius: "50%", marginLeft: "1px", padding: "2px" }}>
-                                    {numberOrders}
-                                </strong>
-                            </NavLink>
-                            <FontAwesomeIcon icon={faMap} className='text-warning rounded-circle px-1 shadow-lg' />
-                        </div>
-                        <div className="col-8 col-sm-8 d-flex justify-content-center align-items-center">
-                            <NavLink to='/' className='me-5'>
-                                <img src={LogoWebSite} alt='logosite' height='50px' width="80px" />
-                            </NavLink>
-                        </div>
-                        <div className="col-1 col-sm-1 d-flex justify-content-end">
-                            <FontAwesomeIcon icon={faBars} />
-                        </div>
+            <div className="container shadowheader">
+                <div className="row m-auto d-flex justify-content-end align-items-center" ref={ref}>
+                    <div className="col-1 col-sm-1 d-flex justify-content-end">
+                        <FontAwesomeIcon icon={faBars} onClick={() => setIsMenuOpen(oldState => !oldState)} style={{ cursor: "pointer" }} />
                     </div>
+                    <div className="col-9 col-sm-9 d-flex justify-content-center align-items-center">
+                        <NavLink to='/' className=''>
+                            <img src={LogoWebSite} alt='logosite' height='50px' width="80px" />
+                        </NavLink>
+                    </div>
+                    <div className="col-2 col-sm-2 d-flex justify-content-end align-items-center">
+                        <NavLink to="/shoppingcart" className="btn">
+                            <button type="button" class="btn position-relative">
+                                <FontAwesomeIcon icon="shopping-cart" className="text-danger" />
+                                <span class={`${hidenumber} position-absolute top-0 start-100 shopingcard-header badge rounded-pill bg-primary`}>{numberOrders}
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </button>
+                        </NavLink>
+                        <FontAwesomeIcon icon={faMap} className='text-warning rounded-circle px-1 shadow-lg' />
+                    </div>
+                    {showmenumobil}
                 </div>
-            </header>
+            </div>
     }
 
     return (
         <Fragment>
-            {largepageOrresponsivpage}
+            <header className="position-sticky top-0" style={{ zIndex: '1' }}>
+                {largepageOrresponsivpage}
+            </header>
         </Fragment >
     )
 

@@ -1,84 +1,12 @@
-.imgrow{
-    border-radius: 46px;
-    height: 85%;
-    width: 100%;
-}
 .divcolsection1 {
     height: 50vh;
 }
-.backdivsiction1Pizza{
-    background-image: url('./img/Piazza-for-Order-Food.jpg');
+
+.backgroundformap {
     background-position: center;
     background-size: cover;
-    border-radius: 46px;
-    height: 85%;
-    width: 100%;    
-}
-.backdivsiction1Kebab{
-    background-image: url('./img/kebabforOrderFood.jpg');
-    background-position: center;
-    background-size: cover;
-    border-radius: 46px;
-    height: 85%;
-    width: 100%;    
-}
-.backdivsiction1Jojeh{
-    background-image: url('./img/jojeh.jpg');
-    background-position: center;
-    background-size: cover;
-    border-radius: 46px;
-    height: 85%;
-    width: 100%;    
-}
-.backdivsiction1Gheymeg{
-    background-image: url('./img/gheymeh.jpg');
-    background-position: center;
-    background-size: cover;
-    border-radius: 46px;
-    height: 85%;
-    width: 100%;    
-}
-.backdivsiction1Ghormesabzy{
-    background-image: url('./img/ghormeh-sabzi-for-Order-Food.jpg');
-    background-position: center;
-    background-size: cover;
-    border-radius: 46px;
-    height: 85%;
-    width: 100%;    
-}
-.backdivsiction1Caesar{
-    background-image: url('./img/Caesar-Salad.jpg');
-    background-position: center;
-    background-size: cover;
-    border-radius: 46px;
-    height: 85%;
-    width: 100%;    
-}
-.backdivsiction1Beefstrongof{
-    background-image: url('./img/Beef-Stroganoff-for-Order-Food.jpg');
-    background-position: center;
-    background-size: cover;
-    border-radius: 46px;
-    height: 85%;
-    width: 100%;    
-}
-.backdivsictionDizi{
-    background-image: url('./img/dizi-for-Order_Food.jpg');
-    background-position: center;
-    background-size: cover;
-    border-radius: 46px;
-    height: 85%;
-    width: 100%;    
-}
-.tagnavlinksaction1 {
-    text-decoration: none;
-}
-.tagpdesimagessection1{
-    margin-bottom: 0px;
-    margin-right: 0px;
-    padding: 25px;
-    border-top-right-radius: 45px;
-    border-bottom-left-radius: 45px;
-    background-color: orange;
-    color : black;
+    border: 1px solid #e1e1e1;
+    border-radius: 16px;
+    height: 75%;
+    width: 100%;
 }

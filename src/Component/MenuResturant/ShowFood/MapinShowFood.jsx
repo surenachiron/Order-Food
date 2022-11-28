@@ -4,7 +4,11 @@ import ContextOrderFood from "../../../context/ContextOrderFood.js";
 
 const MapinShowFood = () => {
 
+    // #asle car
+
     const context = useContext(ContextOrderFood)
+    // let foodsresturant = context.resturant.map(o => o.foods)
+    // console.log(foodsresturant.map(o => o.namefood))
 
     return (
         <div className="row row-cols-1 row-cols-md-2 g-4 w-100 m-auto h-100">
@@ -14,8 +18,6 @@ const MapinShowFood = () => {
                     nameFood={o.namefood}
                     descriptionFood={o.descriptionfood}
                     price={o.price}
-                    classadd={o.classadd}
-                    classdelet={o.classdelet}
                     numberorderr={o.numberorder}
 
                     AddedOrder={() => context.AddedOrder(o.id)}

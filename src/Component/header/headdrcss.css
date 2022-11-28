@@ -1,11 +1,13 @@
 .search-input {
-    border: none;
     border: 1px solid orange;
     font-weight: 600;
 }
 
+.shopingcard-header {
+    transform: translate(-64%, -22%) !important;
+}
+
 .buttonlogin {
-    padding: 10px 11px;
     font-weight: bold;
 }
 
@@ -13,10 +15,7 @@
     font-size: 0.67em !important;
 }
 
-.shadowheader { 
-    position: sticky;
-    top: 0;
-    z-index: 1;
+.shadowheader {
     background-color: white;
     margin-top: 10px;
     border-radius: 17px 17px 17px 17px;
@@ -32,4 +31,9 @@
 
 .buttonellers {
     padding: 14px 33px;
+}
+
+.linkmenu {
+    text-decoration: none !important;
+    color: black !important;
 }

@@ -1,4 +1,4 @@
-import React, { Children, useState } from "react";
+import React, { useState } from "react";
 
 import ContextOrderFood from "../context/ContextOrderFood.js";
 
@@ -9,10 +9,15 @@ import pizzaimage from '../img/Piazza-for-Order-Food.jpg';
 import diziimage from '../img/dizi-for-Order_Food.jpg';
 import beefstroganoffimage from '../img/Beef-Stroganoff-for-Order-Food.jpg';
 import caesarsaladimage from '../img/Caesar-salad-for-Order-Food.png';
+import googlemaps from '../img/googlemap.png'
 import LogoAsadorEtxebarri from '../img/Logo-For-Asador-Etxebarri.jpg';
 import LogoCentral from '../img/Logo-For-Central.jpg';
 import LogoGeranium from '../img/Logo-For-Geranium.png';
 import LogoNoma from '../img/Logo-For-Noma.png';
+import LogoAlbino from '../img/Logo-For-Albino-Resturant.jpg';
+import LogoHamber from '../img/Logo-For-Hamber-Resturant.png';
+import LogoResturantfake from '../img/Logo-For-Resturantfake.jpg';
+import LogoTagline from '../img/Logo-For-Tagline-Here.png';
 import '../component/menuResturant/showFood/Csspartsshowfood.css'
 
 const GlobalState = ({ children }) => {
@@ -31,17 +36,90 @@ const GlobalState = ({ children }) => {
         { id: 6, numberorder: 0, picture: <img src={caesarsaladimage} alt="caesarsaladimage" width="112px" height="112px" />, namefood: "caesar-salad", descriptionfood: "a food perfect and nice and great", price: 30 }
     ]);
 
+
     const [getFoodOrder, changeFoodOrder] = useState([])
 
+
     const [getResturant, changeResturant] = useState([
-        { id: 1, resturant: "AsadorEtxebarri", logo: <img src={LogoAsadorEtxebarri} width="150px" height="150px" alt="logoResturantAsadorEtxebarri" /> },
+        { id: 1, name: "AsadorEtxebarri", logo: LogoAsadorEtxebarri },
 
-        { id: 2, resturant: "Central", logo: <img src={LogoCentral} width="150px" height="150px" alt="LogoResturantCentral" /> },
+        {
+            id: 2, name: "Hamber", logo: LogoHamber, foods: [
+                { id: 1, numberorder: 0, picture: <img src={ghormehsabziimage} alt="ghormehsabziimage" width="112px" height="112px" />, namefood: "ghormeh-sabzi", descriptionfood: "a food great and perfect and nice", price: 50 },
+                { id: 2, numberorder: 0, picture: <img src={kebabimage} alt="kebabimage" width="112px" height="112px" />, namefood: "Kebab", descriptionfood: "a food perfect and nice and great", price: 80 },
+                { id: 3, numberorder: 0, picture: <img src={pizzaimage} alt="pizzaimage" width="112px" height="112px" />, namefood: "pizza", descriptionfood: "a food great and perfect and nice", price: 65 },
+                { id: 4, numberorder: 0, picture: <img src={diziimage} alt="diziimage" width="112px" height="112px" />, namefood: "dizy", descriptionfood: "a food perfect and nice and great", price: 100 },
+                { id: 5, numberorder: 0, picture: <img src={beefstroganoffimage} alt="beefstroganoffimage" width="112px" height="112px" />, namefood: "beef-stroganoff", descriptionfood: "a food great and perfect and nice", price: 90 },
+                { id: 6, numberorder: 0, picture: <img src={caesarsaladimage} alt="caesarsaladimage" width="112px" height="112px" />, namefood: "caesar-salad", descriptionfood: "a food perfect and nice and great", price: 30 }
+            ]
+        },
 
-        { id: 3, resturant: "Geranium", logo: <img src={LogoGeranium} width="150px" height="150px" alt="LogoResturantGeranium" /> },
+        { id: 3, name: "Geranium", logo: LogoGeranium },
 
-        { id: 4, resturant: "Noma", logo: <img src={LogoNoma} width="150px" height="150px" alt="LogoResturantNoma" /> }
+        { id: 4, name: "Noma", logo: LogoNoma },
+
+        { id: 5, name: "Tagline", logo: LogoTagline },
+
+        { id: 6, name: "Central", logo: LogoCentral },
+
+        { id: 7, name: "Resturantfake", logo: LogoResturantfake },
+
+        { id: 8, name: "Albino", logo: LogoAlbino },
     ]);
+
+
+
+    // const [getFood, changeFood] = useState([
+
+    // ])
+
+    // const [getFoodOrder, changeFoodOrder] = useState([
+
+    // ])
+
+
+    // const [getResturant, changeResturant] = useState([
+
+    // ])
+
+
+    const [getimageimportant, setimage] = useState([
+        {
+            id: 0,
+            name: "imageghormehsabzi",
+            img: <img src={ghormehsabziimage} alt="ghormehsabziimage" width="112px" height="112px" />
+        },
+        {
+            id: 1,
+            name: "imagekebab",
+            img: <img src={kebabimage} alt="kebabimage" width="112px" height="112px" />
+        },
+        {
+            id: 2,
+            name: "imagepizza",
+            img: <img src={pizzaimage} alt="pizzaimage" width="112px" height="112px" />
+        },
+        {
+            id: 3,
+            name: "imagedizi",
+            img: <img src={diziimage} alt="diziimage" width="112px" height="112px" />
+        },
+        {
+            id: 4,
+            name: "imagebeefstroganoff",
+            img: <img src={beefstroganoffimage} alt="beefstroganoffimage" width="112px" height="112px" />
+        },
+        {
+            id: 5,
+            name: "imagecaesarsalad",
+            img: <img src={caesarsaladimage} alt="caesarsaladimage" width="112px" height="112px" />
+        },
+        {
+            id: 6,
+            name: "googlemaps",
+            img: <img src={googlemaps} alt="googlemapsimage" className="w-100 h-75" />
+        },
+    ])
 
     const AddedOrder = (id) => {
 
@@ -59,7 +137,7 @@ const GlobalState = ({ children }) => {
         const beforeFoodOrder = [...getFoodOrder]
         const changeaddFoodOrder = {
             nameFoodOrder: Accessibility.namefood,
-            picture : Accessibility.picture,
+            picture: Accessibility.picture,
             price: Accessibility.price,
             numberorderr: Accessibility.numberorder,
             id: Accessibility.id
@@ -178,7 +256,8 @@ const GlobalState = ({ children }) => {
         <ContextOrderFood.Provider value={{
             Food: getFood,
             FoodOrders: getFoodOrder,
-            img: getResturant,
+            resturant: getResturant,
+            image: getimageimportant,
             AddedOrder: AddedOrder,
             deletorder: deletorder,
             Minesorder: Minesorder,

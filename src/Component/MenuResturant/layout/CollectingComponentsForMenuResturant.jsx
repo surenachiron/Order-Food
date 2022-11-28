@@ -20,7 +20,7 @@ const CollectingComponentsForMenuResturant = () => {
 
     return (
         <Fragment>
-            <div className="mx-auto px-3">
+            <div className="mx-auto px-3 mt-5">
                 <div className="row">
                     <div className="col-12 col-xl-3 col-lg-12 col-md-12 col-sm-12">
                         <ShowResturant />
@@ -30,12 +30,14 @@ const CollectingComponentsForMenuResturant = () => {
                     </div>
                     {(widthscreen >= 992) ? (
                         <div className="col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12">
-                            <HeaderOrder />
-                            <div className="overscroll-contain overflow-y-auto py-10 max-h-screen top-20 sticky">
-                                <div className="row mx-1 border border-muted rounded">
-                                    <MapforOrder />
+                            <div className="position-sticky" style={{ top: '4.8rem' }}>
+                                <HeaderOrder />
+                                <div className="overscroll-contain overflow-y-auto py-10 max-h-screen top-20 sticky">
+                                    <div className="row mx-1 border border-muted rounded">
+                                        <MapforOrder />
+                                    </div>
+                                    <FooterOrder />
                                 </div>
-                                <FooterOrder />
                             </div>
                         </div>
                     ) : ""}

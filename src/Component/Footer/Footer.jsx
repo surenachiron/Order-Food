@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 import Logosite from './logo.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -22,7 +22,7 @@ const Footer = () => {
                                 <h5 className="h5">Chef-Food</h5>
                                 <p>Lorem ipsum dolor sit amet consectetur.</p>
                                 <div className="d-flex">
-                                    <FontAwesomeIcon icon={faTelegram} size='1x' color="orange" className="styleicon" />
+                                    <FontAwesomeIcon icon={faTelegram} size='1x' color="orange" className="styleicon" style={{ marginLeft: "0" }} />
                                     <FontAwesomeIcon icon={faTwitter} size='1x' color="orange" className="styleicon" />
                                     <FontAwesomeIcon icon={faInstagram} size='1x' color="orange" className="styleicon" />
                                     <FontAwesomeIcon icon={faLinkedin} size='1x' color="orange" className="styleicon" />
@@ -33,7 +33,7 @@ const Footer = () => {
                     </div>
                     <div className="col-12 col-lg-3 col-md-6 col-sm-6 mt-5">
                         <ul>
-                            <li>About Us</li>
+                            <li><NavLink to='/aboutus' className="tagnavlinksaction1"><span>About Us</span></NavLink></li>
                             <li>Blog</li>
                             <li>Site Rules</li>
                             <li>Privacy</li>

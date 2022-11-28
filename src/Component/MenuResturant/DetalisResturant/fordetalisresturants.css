@@ -1,0 +1,10 @@
+.backgrounmedium {
+    background-image: url('../../../img/Logo-For-Asador-Etxebarri.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.forsizeimagcomponnentshowresturant {
+    width: 100px !important;
+    height: 100px !important;
+}

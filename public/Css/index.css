@@ -8,23 +8,18 @@
     font-family: 'ProximaNova,arial,Helvetica Neue,sans-serif';
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
-    font-weight: 600 !important;
-    line-height: 1.5rem !important;
-}
-
 * img {
     border-radius: 7px;
 }
 
 li {
-    margin-bottom: 7px;
     list-style-type: none;
     cursor: pointer;
+    margin: 5px 0;
+}
+a{
+    color: black !important;
+    text-decoration: none !important;
 }
 @keyframes example {
     0% {
@@ -34,11 +29,4 @@ li {
     100% {
         width: 70%;
     }
-}
-
-li:hover {
-    width: 70%;
-    border-bottom: 2px solid orange;
-    animation-name: example !important;
-    animation-duration: 1s !important;
 }
