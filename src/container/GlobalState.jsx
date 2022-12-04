@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import ContextOrderFood from "../context/ContextOrderFood.js";
 
 // Todo : img
@@ -56,7 +56,7 @@ const GlobalState = ({ children }) => {
         { id: 8, name: "Albino", logo: LogoAlbino, foods: "", orderfood: [] },
     ]);
 
-    const [getimageimportant, setimage] = useState([
+    const [getimageimportant] = useState([
         {
             id: 0,
             name: "imageghormehsabzi",
@@ -198,9 +198,6 @@ const GlobalState = ({ children }) => {
         }
         changeResturant(beforefood)
     }
-
-    console.log(getResturant)
-
 
     return (
         <ContextOrderFood.Provider value={{

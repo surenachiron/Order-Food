@@ -1,6 +1,5 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
-import ContextOrderFood from "../../../context/ContextOrderFood";
 
 const FooterOrder = ({ resturantorder }) => {
     
@@ -9,7 +8,6 @@ const FooterOrder = ({ resturantorder }) => {
         let result = resturantorder[i].numberorderr * resturantorder[i].price
         sum += result
     }
-    console.log(sum)
 
     let offfalse = ""
     if (resturantorder.length >= 1) {

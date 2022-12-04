@@ -14,7 +14,7 @@ const Login = () => {
 
     const [getemail, setEmail] = useState("")
     const [getpassword, setPassword] = useState("")
-    const [getdata, setData] = useState([])
+    const [, setData] = useState([])
     const [testforloading, settestforloading] = useState(false)
     const [error, seterror] = useState('')
     const [, forupdaterender] = useState("")
@@ -61,7 +61,6 @@ const Login = () => {
                 forupdaterender(1)
             }
         } catch (err) {
-            console.log(err)
             settestforloading(false)
         }
     }
