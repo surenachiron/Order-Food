@@ -7,13 +7,11 @@ const Layout = () => {
 
     return (
         <Fragment>
-            <HeaderOrder />
             <div className="container px-3">
                 <div className="row d-flex">
                     <MapforOrderResponsiv />
                 </div>
             </div>
-            <FooterOrder />
         </Fragment>
     )
 

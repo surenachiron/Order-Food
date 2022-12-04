@@ -1,10 +1,11 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState, useContext } from "react";
 import MapinShowFood from "../showFood/MapinShowFood";
 import ShowResturant from "../detalisResturant/ShowResturant";
 import MapforOrder from "../orders/MapforOrder";
 import HeaderOrder from "../orders/HeaderOrder";
 import FooterOrder from "../orders/FooterOrder";
-
+import ContextOrderFood from "../../../context/ContextOrderFood.js";
+import { useLocation } from 'react-router-dom'
 
 const CollectingComponentsForMenuResturant = () => {
 
@@ -17,6 +18,16 @@ const CollectingComponentsForMenuResturant = () => {
         return () => window.removeEventListener("resize", updateDimensions);
     }, []);
 
+    const context = useContext(ContextOrderFood)
+    const location = useLocation();
+
+    let foodsresturant;
+
+    for (let i = 0; i < context.resturant.length; i++) {
+        if (("/" + context.resturant[i].name) === (location.pathname)) {
+            foodsresturant = context.resturant[i]
+        }
+    }
 
     return (
         <Fragment>
@@ -26,17 +37,17 @@ const CollectingComponentsForMenuResturant = () => {
                         <ShowResturant />
                     </div>
                     <div className="col-12 col-xl-6 col-lg-8 col-md-12 col-sm-12">
-                        <MapinShowFood />
+                        <MapinShowFood lenghorder={foodsresturant.orderfood.length} />
                     </div>
                     {(widthscreen >= 992) ? (
                         <div className="col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12">
                             <div className="position-sticky" style={{ top: '4.8rem' }}>
-                                <HeaderOrder />
+                                <HeaderOrder lenghorder={foodsresturant.orderfood.length} />
                                 <div className="overscroll-contain overflow-y-auto py-10 max-h-screen top-20 sticky">
                                     <div className="row mx-1 border border-muted rounded">
-                                        <MapforOrder />
+                                        <MapforOrder lenghorder={foodsresturant.orderfood} />
                                     </div>
-                                    <FooterOrder />
+                                    <FooterOrder resturantorder={foodsresturant.orderfood} />
                                 </div>
                             </div>
                         </div>

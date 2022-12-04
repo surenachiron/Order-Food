@@ -8,6 +8,22 @@ import { faTrash } from '@fortawesome/fontawesome-free-solid'
 const MapforOrderResponsiv = () => {
 
     const context = useContext(ContextOrderFood)
+    let nameresturant = [];
+    let number = 0;
+
+    for (let i = 0; i < context.resturant.length; i++) {
+        if (context.resturant[i].orderfood !== undefined && context.resturant[i].orderfood.length >= 1) {
+            nameresturant.push({ number: i })
+            number++;
+        }
+    }
+
+    let lenghtforim = 0
+    for (let i = 0; i < context.resturant.length; i++) {
+        if (context.resturant[i].orderfood !== undefined && context.resturant[i].orderfood.length >= 1)
+            lenghtforim += 1;
+    }
+
     let Trash = ''
     if (context.lengthFoodOrder >= 1) {
         Trash =
@@ -21,19 +37,24 @@ const MapforOrderResponsiv = () => {
     return (
         <Fragment>
             {Trash}
-            {context.FoodOrders.map(o => (
-                <OrderResponsiv
-                    nameFoodOrder={o.nameFoodOrder}
-                    picture={o.picture}
-                    price={o.price}
-                    numberorderr={o.numberorderr}
+            {nameresturant.map(b => context.resturant[b.number].orderfood.map(o => (
+                <div className="col-12 col-lg-6 col-sm-12 col-md-6">
+                    <OrderResponsiv
+                        nameresturant={context.resturant[b.number].name}
+                        nameFoodOrder={o.nameFoodOrder}
+                        picture={o.picture}
+                        price={o.price}
+                        numberorderr={o.numberorderr}
 
-                    AddinOrderFood={() => context.AddinOrderFood(o.id)}
-                    DeletinOrderFood={() => context.DeletinOrderFood(o.id)}
-                    MinesinOrderFood={() => context.MinesinOrderFood(o.id)}
-                >
-                </OrderResponsiv>
-            ))}
+                        lenghtforim={lenghtforim}
+
+                        AddinOrderFood={() => context.AddinOrderFood(context.resturant[nameresturant[0]].name, o.id)}
+                        DeletinOrderFood={() => context.deletorder(context.resturant[nameresturant[0]].name, o.id)}
+                        MinesinOrderFood={() => context.Minesorder(context.resturant[nameresturant[0]].name, o.id)}
+                    >
+                    </OrderResponsiv>
+                </div>
+            )))}
         </Fragment >
     )
 }

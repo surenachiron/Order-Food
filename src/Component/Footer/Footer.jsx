@@ -33,7 +33,7 @@ const Footer = () => {
                     </div>
                     <div className="col-12 col-lg-3 col-md-6 col-sm-6 mt-5">
                         <ul>
-                            <li><NavLink to='/aboutus' className="tagnavlinksaction1"><span>About Us</span></NavLink></li>
+                            <li><NavLink to='/aboutus' className="tagnavlinksaction1"><span className="tagaspicial">About Us</span></NavLink></li>
                             <li>Blog</li>
                             <li>Site Rules</li>
                             <li>Privacy</li>

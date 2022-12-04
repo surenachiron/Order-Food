@@ -1,14 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMotorcycle } from '@fortawesome/fontawesome-free-solid'
-import ContextOrderFood from "../../../context/ContextOrderFood";
 import '../showFood/Csspartsshowfood.css'
 
-const HeaderOrder = () => {
+const HeaderOrder = ({lenghorder}) => {
 
-    const context = useContext(ContextOrderFood)
     let truee = ""
-    if (context.lengthFoodOrder === 0) {
+    if (lenghorder === 0) {
         truee =
             <div className="mt-3 mb-5 d-flex flex-column align-items-center justify-content-center">
                 <FontAwesomeIcon icon="shopping-cart" className="text-muted mb-2">

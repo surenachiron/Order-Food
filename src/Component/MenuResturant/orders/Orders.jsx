@@ -1,13 +1,10 @@
-import React, { Fragment, useContext } from "react";
-import ContextOrderFood from "../../../context/ContextOrderFood";
+import React, { Fragment } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/fontawesome-free-solid'
 import '../showFood/Csspartsshowfood.css'
 import './fororderFood.css'
 
-const Orders = ({ nameFoodOrder, price, numberorderr, AddinOrderFood, DeletinOrderFood, MinesinOrderFood }) => {
-
-    const context = useContext(ContextOrderFood)
+const Orders = ({ nameFoodOrder, price, numberorderr, AddinOrderFood, DeletinOrderFood, MinesinOrderFood, lengthFoodOrder }) => {
 
     let DeletNoneOrFlex = ""
     let MinesNoneOrFlex = ""
@@ -19,22 +16,22 @@ const Orders = ({ nameFoodOrder, price, numberorderr, AddinOrderFood, DeletinOrd
         DeletNoneOrFlex = "d-none"
         MinesNoneOrFlex = ""
     }
-    if (numberorderr >= 1) {
+    if (lengthFoodOrder >= 1) {
         classdelet = "d-flex"
     } else {
         classdelet = "d-none"
     }
 
 
-    let { truee } = "";
-    if (context.lengthFoodOrder >= 1) {
+    let truee = "";
+    if (lengthFoodOrder >= 1) {
         truee =
             <div className="col-12 col-lg-12 col-md-6 col-sm-6 mb-2">
                 <h6 className="m-1">{nameFoodOrder}</h6>
 
                 <div className={`${classdelet} d-flex align-items-center justify-content-center mt-2`}>
                     <div className="d-flex align-items-end justify-content-end">
-                        <p className="mx-3 m-1 text-muted">{price}$ : </p>
+                        <p className="mx-3 m-1 text-muted">${price} :</p>
                     </div>
                     <div className="d-flex">
                         <button type="button" className={`${DeletNoneOrFlex} btn btn-sm rounded-pill border`} style={{ width: '2rem', height: '2rem' }} onClick={DeletinOrderFood}>

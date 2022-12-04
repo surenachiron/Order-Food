@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-
+import React, { useContext, useState } from "react";
 import ContextOrderFood from "../context/ContextOrderFood.js";
 
 // Todo : img
@@ -22,66 +21,40 @@ import '../component/menuResturant/showFood/Csspartsshowfood.css'
 
 const GlobalState = ({ children }) => {
 
-
-    const [getFood, changeFood] = useState([
-        { id: 1, numberorder: 0, picture: <img src={ghormehsabziimage} alt="ghormehsabziimage" width="112px" height="112px" />, namefood: "ghormeh-sabzi", descriptionfood: "a food great and perfect and nice", price: 50 },
-
-        { id: 2, numberorder: 0, picture: <img src={kebabimage} alt="kebabimage" width="112px" height="112px" />, namefood: "Kebab", descriptionfood: "a food perfect and nice and great", price: 80 },
-
-        { id: 3, numberorder: 0, picture: <img src={pizzaimage} alt="pizzaimage" width="112px" height="112px" />, namefood: "pizza", descriptionfood: "a food great and perfect and nice", price: 65 },
-        { id: 4, numberorder: 0, picture: <img src={diziimage} alt="diziimage" width="112px" height="112px" />, namefood: "dizy", descriptionfood: "a food perfect and nice and great", price: 100 },
-
-        { id: 5, numberorder: 0, picture: <img src={beefstroganoffimage} alt="beefstroganoffimage" width="112px" height="112px" />, namefood: "beef-stroganoff", descriptionfood: "a food great and perfect and nice", price: 90 },
-
-        { id: 6, numberorder: 0, picture: <img src={caesarsaladimage} alt="caesarsaladimage" width="112px" height="112px" />, namefood: "caesar-salad", descriptionfood: "a food perfect and nice and great", price: 30 }
-    ]);
-
-
-    const [getFoodOrder, changeFoodOrder] = useState([])
-
-
     const [getResturant, changeResturant] = useState([
-        { id: 1, name: "AsadorEtxebarri", logo: LogoAsadorEtxebarri },
+        { id: 1, name: "AsadorEtxebarri", logo: LogoAsadorEtxebarri, foods: "", orderfood: [] },
 
         {
             id: 2, name: "Hamber", logo: LogoHamber, foods: [
+                { id: 1, numberorder: 0, picture: <img src={ghormehsabziimage} alt="ghormehsabziimage" width="112px" height="112px" />, namefood: "number1", descriptionfood: "a food great and perfect and nice", price: 50 },
+                { id: 2, numberorder: 0, picture: <img src={kebabimage} alt="kebabimage" width="112px" height="112px" />, namefood: "number2", descriptionfood: "a food perfect and nice and great", price: 80 },
+                { id: 3, numberorder: 0, picture: <img src={pizzaimage} alt="pizzaimage" width="112px" height="112px" />, namefood: "number3", descriptionfood: "a food great and perfect and nice", price: 65 },
+                { id: 4, numberorder: 0, picture: <img src={diziimage} alt="diziimage" width="112px" height="112px" />, namefood: "number4", descriptionfood: "a food perfect and nice and great", price: 100 },
+                { id: 5, numberorder: 0, picture: <img src={beefstroganoffimage} alt="beefstroganoffimage" width="112px" height="112px" />, namefood: "number5", descriptionfood: "a food great and perfect and nice", price: 90 },
+                { id: 6, numberorder: 0, picture: <img src={caesarsaladimage} alt="caesarsaladimage" width="112px" height="112px" />, namefood: "number6", descriptionfood: "a food perfect and nice and great", price: 30 }
+        ], orderfood: [] },
+
+        { id: 3, name: "Geranium", logo: LogoGeranium, foods: "", orderfood: [] },
+
+        { id: 4, name: "Noma", logo: LogoNoma, foods: "", orderfood: [] },
+
+        {
+            id: 5, name: "Tagline", logo: LogoTagline, foods: [
                 { id: 1, numberorder: 0, picture: <img src={ghormehsabziimage} alt="ghormehsabziimage" width="112px" height="112px" />, namefood: "ghormeh-sabzi", descriptionfood: "a food great and perfect and nice", price: 50 },
                 { id: 2, numberorder: 0, picture: <img src={kebabimage} alt="kebabimage" width="112px" height="112px" />, namefood: "Kebab", descriptionfood: "a food perfect and nice and great", price: 80 },
                 { id: 3, numberorder: 0, picture: <img src={pizzaimage} alt="pizzaimage" width="112px" height="112px" />, namefood: "pizza", descriptionfood: "a food great and perfect and nice", price: 65 },
                 { id: 4, numberorder: 0, picture: <img src={diziimage} alt="diziimage" width="112px" height="112px" />, namefood: "dizy", descriptionfood: "a food perfect and nice and great", price: 100 },
                 { id: 5, numberorder: 0, picture: <img src={beefstroganoffimage} alt="beefstroganoffimage" width="112px" height="112px" />, namefood: "beef-stroganoff", descriptionfood: "a food great and perfect and nice", price: 90 },
                 { id: 6, numberorder: 0, picture: <img src={caesarsaladimage} alt="caesarsaladimage" width="112px" height="112px" />, namefood: "caesar-salad", descriptionfood: "a food perfect and nice and great", price: 30 }
-            ]
+            ], orderfood: []
         },
 
-        { id: 3, name: "Geranium", logo: LogoGeranium },
+        { id: 6, name: "Central", logo: LogoCentral, foods: "", orderfood: [] },
 
-        { id: 4, name: "Noma", logo: LogoNoma },
+        { id: 7, name: "Resturantfake", logo: LogoResturantfake, foods: "", orderfood: [] },
 
-        { id: 5, name: "Tagline", logo: LogoTagline },
-
-        { id: 6, name: "Central", logo: LogoCentral },
-
-        { id: 7, name: "Resturantfake", logo: LogoResturantfake },
-
-        { id: 8, name: "Albino", logo: LogoAlbino },
+        { id: 8, name: "Albino", logo: LogoAlbino, foods: "", orderfood: [] },
     ]);
-
-
-
-    // const [getFood, changeFood] = useState([
-
-    // ])
-
-    // const [getFoodOrder, changeFoodOrder] = useState([
-
-    // ])
-
-
-    // const [getResturant, changeResturant] = useState([
-
-    // ])
-
 
     const [getimageimportant, setimage] = useState([
         {
@@ -121,151 +94,123 @@ const GlobalState = ({ children }) => {
         },
     ])
 
-    const AddedOrder = (id) => {
+    let foodsresturant;
 
-        // Add order number to food in State getFood
-        const beforefood = [...getFood]
-        const findstate = beforefood.findIndex(p => p.id === id)
-        const Accessibility = beforefood[findstate]
-        Accessibility.numberorder += 1
-        const editstateFood = [...beforefood];
-        editstateFood[findstate] = Accessibility;
-        changeFood(editstateFood)
-
-        // Add order number to food in State getFoodOrder
-        // Add ordered food to orders in state getFoodOrder
-        const beforeFoodOrder = [...getFoodOrder]
-        const changeaddFoodOrder = {
-            nameFoodOrder: Accessibility.namefood,
-            picture: Accessibility.picture,
-            price: Accessibility.price,
-            numberorderr: Accessibility.numberorder,
-            id: Accessibility.id
+    for (let i = 0; i < getResturant.length; i++) {
+        if (("/" + getResturant[i].name) === (window.location.pathname)) {
+            foodsresturant = getResturant[i].name
         }
-        const findstateOrder = beforeFoodOrder.findIndex(m => m.nameFoodOrder === Accessibility.namefood)
-        const AccessibilityOrder = beforeFoodOrder[findstateOrder]
+    }
+
+    const AddedOrder = (resturant, id) => {
+        const beforefood = [...getResturant]
+        const findstate = beforefood.findIndex(p => p.name === resturant)
+        const Accessibilityfake = beforefood[findstate]
+        const findfood = Accessibilityfake.foods.findIndex(p => p.id === id)
+        const Accessibilityasle = Accessibilityfake.foods[findfood]
+
+        Accessibilityasle.numberorder += 1
+        const editstateFood = [...beforefood];
+        editstateFood[findstate].foods[findfood] = Accessibilityasle;
+        changeResturant(editstateFood)
+
+        const changeaddFoodOrder = {
+            nameFoodOrder: Accessibilityasle.namefood,
+            picture: Accessibilityasle.picture,
+            price: Accessibilityasle.price,
+            numberorderr: Accessibilityasle.numberorder,
+            id: Accessibilityasle.id
+        }
+
+        const findstateOrder = Accessibilityfake.orderfood.findIndex(m => m.nameFoodOrder === Accessibilityasle.namefood)
+        const AccessibilityOrder = Accessibilityfake.orderfood[findstateOrder]
 
         if (AccessibilityOrder === undefined || AccessibilityOrder === false) {
-            beforeFoodOrder.push(changeaddFoodOrder)
-            changeFoodOrder(beforeFoodOrder)
+            Accessibilityfake.orderfood.push(changeaddFoodOrder)
         } else {
             AccessibilityOrder.numberorderr += 1
-            beforeFoodOrder[findstateOrder] = AccessibilityOrder;
-            changeFoodOrder(beforeFoodOrder)
+            editstateFood[findstate].orderfood[findstateOrder] = AccessibilityOrder;
+            changeResturant(editstateFood)
         }
     }
 
+    const deletorder = (resturant, id) => {
+        const beforefood = [...getResturant]
+        const findstate = beforefood.findIndex(p => p.name === resturant)
+        const Accessibilityfake = beforefood[findstate]
+        const findfood = Accessibilityfake.foods.findIndex(p => p.id === id)
+        const Accessibilityasle = Accessibilityfake.foods[findfood]
+        Accessibilityasle.numberorder -= 1
+        const editstateFood = [...beforefood];
+        editstateFood[findstate].foods[findfood] = Accessibilityasle;
+        changeResturant(editstateFood)
 
-    const deletorder = (id) => {
-        // Delet order food in State getFood
-        const beforeFood = [...getFood]
-        const findindexx = beforeFood.findIndex(p => p.id === id)
-        const Accessibility = beforeFood[findindexx]
-        Accessibility.numberorder -= 1
-        beforeFood[findindexx] = Accessibility
-        changeFood(beforeFood)
-
-        // Delet order food in State getFoodOrder
-        const beforeFoodOrder = [...getFoodOrder]
-        const filterorderinstate = beforeFoodOrder.filter(o => o.nameFoodOrder !== Accessibility.namefood)
-        changeFoodOrder(filterorderinstate)
+        const findfoodordr = Accessibilityfake.orderfood.findIndex(p => p.id === id)
+        const Accessibilityasleorder = Accessibilityfake.orderfood[findfoodordr]
+        const filterorderinstate = Accessibilityfake.orderfood.filter(o => o.nameFoodOrder !== Accessibilityasleorder.nameFoodOrder)
+        editstateFood[findstate].orderfood = filterorderinstate;
+        changeResturant(editstateFood)
     }
 
-    const Minesorder = (id) => {
-        // mines order number to food in State getFood
-        const beforeFood = [...getFood]
-        const findindexx = beforeFood.findIndex(p => p.id === id)
-        const Accessibility = beforeFood[findindexx]
-        Accessibility.numberorder -= 1
-        beforeFood[findindexx] = Accessibility
-        changeFood(beforeFood)
+    const Minesorder = (resturant, id) => {
+        const beforefood = [...getResturant]
+        const findstate = beforefood.findIndex(p => p.name === resturant)
+        const Accessibilityfake = beforefood[findstate]
+        const findfood = Accessibilityfake.foods.findIndex(p => p.id === id)
+        const Accessibilityasle = Accessibilityfake.foods[findfood]
+        Accessibilityasle.numberorder -= 1
+        const editstateFood = [...beforefood];
+        editstateFood[findstate].foods[findfood] = Accessibilityasle;
+        changeResturant(editstateFood)
 
-        // Mines order number to food in State getFoodOrder
-        const beforeFoodOrder = [...getFoodOrder]
-        const findobjectinstate = beforeFoodOrder.findIndex(m => m.nameFoodOrder === Accessibility.namefood)
-        const AccessibilityOrder = beforeFoodOrder[findobjectinstate]
-        AccessibilityOrder.numberorderr -= 1
-        beforeFoodOrder[findobjectinstate] = AccessibilityOrder
-        changeFoodOrder(beforeFoodOrder)
+        const findfoodorder = Accessibilityfake.orderfood.findIndex(p => p.id === id)
+        const Accessibilityasleorder = Accessibilityfake.orderfood[findfoodorder]
+        Accessibilityasleorder.numberorderr -= 1
+        editstateFood[findstate].orderfood[findfoodorder] = Accessibilityasleorder;
+        changeResturant(editstateFood)
     }
 
-    const AddinOrderFood = (id) => {
-        const beforeFoodOrder = [...getFoodOrder]
-        const findindexOrderFood = beforeFoodOrder.findIndex(p => p.id === id)
-        const AccessibilityOrder = beforeFoodOrder[findindexOrderFood]
-        AccessibilityOrder.numberorderr += 1
-        beforeFoodOrder[findindexOrderFood] = AccessibilityOrder
-        changeFoodOrder(beforeFoodOrder)
+    const AddinOrderFood = (resturant, id) => {
+        const beforefood = [...getResturant]
+        const findstate = beforefood.findIndex(p => p.name === resturant)
+        const Accessibilityfake = beforefood[findstate]
+        const findfood = Accessibilityfake.foods.findIndex(p => p.id === id)
+        const Accessibilityasle = Accessibilityfake.foods[findfood]
 
-        const beforeFood = [...getFood]
-        const findindexFodd = beforeFood.findIndex(p => p.namefood === AccessibilityOrder.nameFoodOrder)
-        const Accessibility = beforeFood[findindexFodd]
-        Accessibility.numberorder += 1
-        beforeFood[findindexFodd] = Accessibility
-        changeFood(beforeFood)
-    }
+        Accessibilityasle.numberorder += 1
+        const editstateFood = [...beforefood];
+        editstateFood[findstate].foods[findfood] = Accessibilityasle;
 
-    const DeletinOrderFood = (id) => {
-        const beforeFoodOrder = [...getFoodOrder]
-        const findfilterOrder = beforeFoodOrder.filter(p => p.id !== id)
-        changeFoodOrder(findfilterOrder)
+        const findfoodorder = Accessibilityfake.orderfood.findIndex(p => p.id === id)
+        const Accessibilityasleorder = Accessibilityfake.orderfood[findfoodorder]
+        Accessibilityasleorder.numberorderr += 1
 
-        const finindexOrder = beforeFoodOrder.findIndex(p => p.id === id)
-        const AccessibilityOrder = beforeFoodOrder[finindexOrder]
-        const beforeFood = [...getFood]
-        const findindexFodd = beforeFood.findIndex(p => p.namefood === AccessibilityOrder.nameFoodOrder)
-        const Accessibility = beforeFood[findindexFodd]
-        Accessibility.numberorder -= 1
-        beforeFood[findindexFodd] = Accessibility
-        changeFood(beforeFood)
-    }
-
-    const MinesinOrderFood = (id) => {
-        const beforeFoodOrder = [...getFoodOrder]
-        const findindexOrderFood = beforeFoodOrder.findIndex(p => p.id === id)
-        const AccessibilityOrder = beforeFoodOrder[findindexOrderFood]
-        AccessibilityOrder.numberorderr -= 1
-        beforeFoodOrder[findindexOrderFood] = AccessibilityOrder
-        changeFoodOrder(beforeFoodOrder)
-
-        const beforeFood = [...getFood]
-        const findindexFodd = beforeFood.findIndex(p => p.namefood === AccessibilityOrder.nameFoodOrder)
-        const Accessibility = beforeFood[findindexFodd]
-        Accessibility.numberorder -= 1
-        beforeFood[findindexFodd] = Accessibility
-        changeFood(beforeFood)
+        editstateFood[findstate].orderfood[findfoodorder] = Accessibilityasleorder;
+        changeResturant(editstateFood)
     }
 
     const ClearStateOrderFood = () => {
-        const beforeFood = [...getFood]
-        getFood.map(p => {
-            const find = beforeFood.findIndex(o => o.numberorder >= 1)
-            const Acc = beforeFood[find]
-            if (Acc !== undefined || find !== -1) {
-                Acc.numberorder = 0
-                beforeFood[find] = Acc
-                changeFood(beforeFood)
-            }
-        })
-        changeFoodOrder([])
+        const beforefood = [...getResturant]
+        const findstate = beforefood.findIndex(p => p.name === foodsresturant)
+        beforefood[findstate].orderfood = [];
+        for (let i = 0; i < beforefood[findstate].foods.length; i++) {
+            beforefood[findstate].foods[i].numberorder = 0
+        }
+        changeResturant(beforefood)
     }
 
+    console.log(getResturant)
 
 
     return (
         <ContextOrderFood.Provider value={{
-            Food: getFood,
-            FoodOrders: getFoodOrder,
             resturant: getResturant,
             image: getimageimportant,
             AddedOrder: AddedOrder,
             deletorder: deletorder,
             Minesorder: Minesorder,
             AddinOrderFood: AddinOrderFood,
-            MinesinOrderFood: MinesinOrderFood,
-            DeletinOrderFood: DeletinOrderFood,
             ClearStateOrderFood: ClearStateOrderFood,
-            lengthFoodOrder: getFoodOrder.length,
         }}>
             {children}
         </ContextOrderFood.Provider>

@@ -29,7 +29,6 @@ const Paginition = () => {
         <Fragment>
             {header}
             <Routes>
-                <Route path="/menuresturantAsadorEtxebarri" element={<CollectingComponentsForMenuResturant />} />
                 <Route path="/shoppingcart" element={<Layout />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />

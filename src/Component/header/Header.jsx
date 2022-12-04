@@ -2,7 +2,7 @@ import React, { Fragment, useContext, useEffect, useRef, useState } from "react"
 import ContextOrderFood from "../../context/ContextOrderFood";
 import Mobilmenu from "./Mobilmenu";
 import LogoWebSite from './logo.jpg'
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMap, faStore, faBars } from '@fortawesome/fontawesome-free-solid'
@@ -51,12 +51,21 @@ const Header = () => {
     let numberOrders = 0
     let hidenumber = ''
     const context = useContext(ContextOrderFood)
-    const numberforshopingcard = context.FoodOrders.length
-    if (numberforshopingcard === 0) {
+    const location = useLocation();
+
+    let foodsresturant;
+
+    for (let i = 0; i < context.resturant.length; i++) {
+        if (("/" + context.resturant[i].name) === (location.pathname)) {
+            foodsresturant = context.resturant[i]
+        }
+    }
+
+    if (foodsresturant === undefined) {
         numberOrders = ''
         hidenumber = 'd-none'
     } else {
-        numberOrders += numberforshopingcard
+        numberOrders += foodsresturant.orderfood.length
         hidenumber = 'block'
     }
 

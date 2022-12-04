@@ -5,7 +5,7 @@ import { faTrash } from '@fortawesome/fontawesome-free-solid'
 import '../showFood/Csspartsshowfood.css'
 import '../orders/fororderFood.css'
 
-const OrderResponsiv = ({ nameFoodOrder, picture, price, numberorderr, AddinOrderFood, DeletinOrderFood, MinesinOrderFood }) => {
+const OrderResponsiv = ({ nameresturant, nameFoodOrder, picture, price, numberorderr, AddinOrderFood, DeletinOrderFood, MinesinOrderFood, lenghtforim }) => {
 
     const context = useContext(ContextOrderFood)
 
@@ -27,9 +27,10 @@ const OrderResponsiv = ({ nameFoodOrder, picture, price, numberorderr, AddinOrde
 
 
     let { truee } = "";
-    if (context.lengthFoodOrder >= 1) {
+    if (lenghtforim >= 1) {
         truee =
-            <div className="col-sm-12 col-md-6 mb-2 d-flex" style={{ borderLeft: "1px solid gainsboro" }}>
+        
+            <div className="d-flex">
 
                 <div className="mt-3 card-img-right" style={{ marginRight: "5px", padding: "0px 9px" }}>
                     {picture}
@@ -66,6 +67,9 @@ const OrderResponsiv = ({ nameFoodOrder, picture, price, numberorderr, AddinOrde
 
     return (
         <Fragment>
+            {/* <div>
+                {nameresturant}
+            </div> */}
             {truee}
         </Fragment>
     )

@@ -18,7 +18,6 @@ li {
     margin: 5px 0;
 }
 a{
-    color: black !important;
     text-decoration: none !important;
 }
 @keyframes example {
