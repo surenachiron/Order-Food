@@ -20,7 +20,7 @@ const Seconssection = () => {
                         <div className="col-lg-3 col-sm-6 divcolsection1">
                             <NavLink to={o.name} className='tagnavlinksaction1 text-warning'>
                                 <div className="backgroundformap">
-                                    <img className="w-100 h-100" style={{ borderRadius: "16px" }} src={o.logo} />
+                                    <img className="w-100 h-100" style={{ borderRadius: "16px" }} src="" />
                                 </div>
                             </NavLink>
                         </div>

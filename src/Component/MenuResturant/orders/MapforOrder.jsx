@@ -22,7 +22,7 @@ const MapforOrder = ({ lenghorder }) => {
     let Trash = ''
     if (lenghorder.length >= 1) {
         Trash =
-            <div className="d-flex justify-content-end mx-2 mt-2">
+            <div className="d-flex justify-content-end mt-2 me-4">
                 <button onClick={context.ClearStateOrderFood} className="faTrashClearOrder">
                     <FontAwesomeIcon icon={faTrash} className="fa-sm m-auto" color="orange" />
                 </button>

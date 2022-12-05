@@ -3,7 +3,7 @@ import { createContext } from "react";
 
 const ContextOrderFood = createContext({
     resturant: [],
-    image: [],
+    // image: [],
     AddedOrder: () => { },
     deletorder: () => { },
     Minesorder: () => { },

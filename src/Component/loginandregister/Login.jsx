@@ -89,7 +89,7 @@ const Login = () => {
 
                             <div className="d-flex align-items-center justify-content-center w-100">
                                 <NavLink to='/'>
-                                    <img src={LogoWebSite} alt='logosite' width="100px" height="100px" />
+                                    <img src="" alt='logosite' width="100px" height="100px" />
                                 </NavLink>
                             </div>
 

@@ -6,8 +6,7 @@ const Mobilmenu = () => {
 
     return (
         <Fragment>
-            <div className="w-100">
-                <div>
+            <div className="w-100 pb-1">
                     <ul>
                         <li className="listmenu">
                             <NavLink to='/' className='linkmenu'>home</NavLink>
@@ -25,7 +24,6 @@ const Mobilmenu = () => {
                             sellers
                         </li>
                     </ul>
-                </div>
             </div>
         </Fragment>
     )

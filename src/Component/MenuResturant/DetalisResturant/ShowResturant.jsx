@@ -15,8 +15,8 @@ const ShowResturant = () => {
     const findindexAsadorEtxebarri = context.resturant.findIndex(p => ("/" + p.name) === location.pathname)
     const Accebility_resturant = context.resturant[findindexAsadorEtxebarri]
     
-    const findgoodlemap = context.image.findIndex(p => p.id === 6)
-    const Accebility_googlemap = context.image[findgoodlemap]
+    // const findgoodlemap = context.image.findIndex(p => p.id === 6)
+    // const Accebility_googlemap = context.image[findgoodlemap]
 
     const [show, setShow] = useState(false);
     const handleModal = () => setShow(!show);
@@ -42,7 +42,7 @@ const ShowResturant = () => {
 
             <div className={`${backgroundformd} d-flex p-2`}>
                 <div>
-                    <img src={Accebility_resturant.logo} className={`forsizeimagcomponnentshowresturant rounded shadow`} />
+                    <img src="" className={`forsizeimagcomponnentshowresturant rounded shadow`} />
                 </div>
                 <div className="d-flex flex-column" style={{ marginLeft: "6px" }}>
                     <div className="d-flex" style={{ marginBottom: "-10px" }}>
@@ -75,7 +75,7 @@ const ShowResturant = () => {
                 <Modal.Body>
                     <div className="row d-flex">
                         <div className="col-12 col-xl-3 col-lg-3">
-                            <img src={Accebility_resturant.logo} className={`forsizeimagcomponnentshowresturant rounded shadow`} />
+                            <img src="" className={`forsizeimagcomponnentshowresturant rounded shadow`} />
                         </div>
                         <div className="d-flex flex-column col-12 col-xl-6 col-lg-6">
                             {/* name resturant */}
@@ -90,7 +90,7 @@ const ShowResturant = () => {
                         </div>
                         <div className="col-12 col-xl-3 col-lg-3">
                             {/* show location in online map google */}
-                            <img {...Accebility_googlemap.img.props} />
+                            {/* <img {...Accebility_googlemap.img.props} /> */}
                         </div>
                     </div>
                     <div className="row d-flex mt-2">

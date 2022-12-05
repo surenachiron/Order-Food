@@ -30,7 +30,7 @@ const Fourthsection = () => {
                         <button className="btn btn-warning mt-5">Registration of sellers</button>
                     </div>
                     <div className={`${hideinscreenunderlg} col-12 col-lg-4 col-sm-12 p-4`}>
-                        <img src={testKebab} className="w-100 h-75" />
+                        <img src="" className="w-100 h-75" />
                     </div>
                 </div>
             </div>

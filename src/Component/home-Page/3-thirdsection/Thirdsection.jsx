@@ -37,7 +37,7 @@ const Thirdsection = () => {
                             </div>
                         </div>
                         <div className={`${hidedivimag} col-12 col-xl-6 p-5`}>
-                            <img src={testKebab} className="w-100 h-100" />
+                            <img src="w" className="w-100 h-100" />
                         </div>
                     </div>
                     <div className="row">

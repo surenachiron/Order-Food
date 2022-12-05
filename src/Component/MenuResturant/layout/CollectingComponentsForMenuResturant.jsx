@@ -6,6 +6,7 @@ import HeaderOrder from "../orders/HeaderOrder";
 import FooterOrder from "../orders/FooterOrder";
 import ContextOrderFood from "../../../context/ContextOrderFood.js";
 import { useLocation } from 'react-router-dom'
+import { Scrollbars } from 'react-custom-scrollbars';
 
 const CollectingComponentsForMenuResturant = () => {
 
@@ -43,12 +44,12 @@ const CollectingComponentsForMenuResturant = () => {
                         <div className="col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12">
                             <div className="position-sticky" style={{ top: '4.8rem' }}>
                                 <HeaderOrder lenghorder={foodsresturant.orderfood.length} />
-                                <div className="overscroll-contain overflow-y-auto py-10 max-h-screen top-20 sticky">
-                                    <div className="row mx-1 border border-muted rounded">
+                                <Scrollbars  style={{width:320,height: 420 }}>
+                                    <div className="border border-muted rounded">
                                         <MapforOrder lenghorder={foodsresturant.orderfood} />
                                     </div>
                                     <FooterOrder resturantorder={foodsresturant.orderfood} />
-                                </div>
+                                </Scrollbars>
                             </div>
                         </div>
                     ) : ""}

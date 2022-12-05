@@ -28,6 +28,7 @@ const ShowFoodcom = ({ picture, nameFood, descriptionFood, price, numberorderr, 
         classdelet = "d-none"
     }
 
+
     if (notfoos === undefined || notfoos === "") {
         classimportantforshow = "container"
         contentmain =

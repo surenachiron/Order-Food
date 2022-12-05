@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ShowFoodcom from "./ShowFoodcom";
 import ContextOrderFood from "../../../context/ContextOrderFood.js";
-import { useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 const MapinShowFood = () => {
 
@@ -16,6 +16,24 @@ const MapinShowFood = () => {
             foodsresturant = context.resturant[i]
         }
     }
+
+    const [widthscreen, setWidthCcreen] = useState(window.innerWidth);
+    const updateDimensions = () => {
+        setWidthCcreen(window.innerWidth);
+    }
+    useEffect(() => {
+        window.addEventListener("resize", updateDimensions);
+        return () => window.removeEventListener("resize", updateDimensions);
+    }, []);
+
+    let paymentorder = "";
+    if (widthscreen <= 991 && foodsresturant.orderfood.length >= 1) paymentorder =
+        <div>
+            <NavLink to='/shoppingcart'>
+                <button className="btn btn-warning fw-bold w-100">payment</button>
+            </NavLink>
+        </div>
+    else paymentorder = "";
 
 
     if (foodsresturant.foods !== undefined && foodsresturant.foods !== "") {
@@ -45,6 +63,11 @@ const MapinShowFood = () => {
     return (
         <div className="row row-cols-1 row-cols-md-2 g-4 w-100 m-auto h-100">
             {contentmain}
+            <div className="w-100 d-flex align-items-center justify-content-center">
+                <div style={{ width: "98%" }} className="position-fixed bottom-0 container">
+                    {paymentorder}
+                </div>
+            </div>
         </div>
     )
 }

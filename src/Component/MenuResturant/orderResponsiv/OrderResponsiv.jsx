@@ -3,7 +3,6 @@ import ContextOrderFood from "../../../context/ContextOrderFood";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/fontawesome-free-solid'
 import '../showFood/Csspartsshowfood.css'
-import '../orders/fororderFood.css'
 
 const OrderResponsiv = ({ nameresturant, nameFoodOrder, picture, price, numberorderr, AddinOrderFood, DeletinOrderFood, MinesinOrderFood, lenghtforim }) => {
 
