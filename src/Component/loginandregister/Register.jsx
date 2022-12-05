@@ -95,7 +95,7 @@ const Register = () => {
                                     <h5>Register</h5>
                                 </div>
                                 <NavLink to='/'>
-                                    <img src="" alt='logosite' width="100px" height="100px" />
+                                    <img src={LogoWebSite} alt='logosite' width="100px" height="100px" />
                                 </NavLink>
                             </div>
 

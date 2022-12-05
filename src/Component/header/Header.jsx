@@ -1,7 +1,6 @@
 import React, { Fragment, useContext, useEffect, useRef, useState } from "react";
-import ContextOrderFood from "../../context/ContextOrderFood";
 import Mobilmenu from "./Mobilmenu";
-// import LogoWebSite from './logo.jpg'
+import LogoWebSite from './logo.jpg'
 import { NavLink, useLocation } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,6 +8,7 @@ import { faMap, faStore, faBars } from '@fortawesome/fontawesome-free-solid'
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 
 import './headdrcss.css'
+import ContextOrderFood from "../../container/ContextOrderFood";
 
 const Header = () => {
 
@@ -79,7 +79,7 @@ const Header = () => {
                 <div className="row d-flex align-items-center">
                     <div id="Logo" className="col-lg-1">
                         <NavLink to='/'>
-                            <img src="" alt='logosite' width="100px" height="80px" />
+                            <img src={LogoWebSite} alt='logosite' width="100px" height="80px" />
                         </NavLink>
                     </div>
                     <div id="Location" className="col-lg-3 d-flex flex-column align-items-start justify-content-start">

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
-import HeaderOrder from '../orders/HeaderOrder'
+// import HeaderOrder from '../orders/HeaderOrder'
 import MapforOrderResponsiv from './MapforOrderResponsiv'
-import FooterOrder from "../orders/FooterOrder";
+// import FooterOrder from "../orders/FooterOrder";
 
 const Layout = () => {
 

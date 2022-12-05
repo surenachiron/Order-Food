@@ -16,7 +16,7 @@ const Footer = () => {
                     <div className="row d-flex flex-column col-12 col-lg-5 col-md-12 col-sm-12 mt-5">
                         <div className="d-flex">
                             <NavLink to='/'>
-                                <img src="" alt='logosite' width="100px" height="100px" />
+                                <img src={Logosite} alt='logosite' width="100px" height="100px" />
                             </NavLink>
                             <div className="d-flex flex-column">
                                 <h5 className="h5">Chef-Food</h5>

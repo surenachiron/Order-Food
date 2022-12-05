@@ -1,8 +1,7 @@
 import React, { Fragment } from "react";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-
-import ContextOrderFood from "../../../context/ContextOrderFood.js";
+import ContextOrderFood from "../../../container/ContextOrderFood";
 
 import './forsection2.css'
 
@@ -20,7 +19,7 @@ const Seconssection = () => {
                         <div className="col-lg-3 col-sm-6 divcolsection1">
                             <NavLink to={o.name} className='tagnavlinksaction1 text-warning'>
                                 <div className="backgroundformap">
-                                    <img className="w-100 h-100" style={{ borderRadius: "16px" }} src="" />
+                                    <img className="w-100 h-100" style={{ borderRadius: "16px" }} src={o.logo} />
                                 </div>
                             </NavLink>
                         </div>

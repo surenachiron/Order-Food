@@ -8,7 +8,7 @@ import Login from "../component/loginandregister/Login";
 import Register from "../component/loginandregister/Register";
 import CollectingComponentsForMenuResturant from "../component/menuResturant/layout/CollectingComponentsForMenuResturant";
 import Layout from "../component/menuResturant/orderResponsiv/Layout";
-import ContextOrderFood from "../context/ContextOrderFood";
+import ContextOrderFood from "./ContextOrderFood";
 
 const Paginition = () => {
 

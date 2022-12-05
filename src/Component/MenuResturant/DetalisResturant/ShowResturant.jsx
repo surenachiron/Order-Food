@@ -3,20 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock, faCreditCard, faInfo, faMap, faShoppingCart, faStar } from '@fortawesome/fontawesome-free-solid'
 import { Modal, Button, ModalFooter } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ContextOrderFood from "../../../context/ContextOrderFood";
 import './fordetalisresturants.css'
 import { useLocation } from 'react-router-dom'
+import ContextOrderFood from "../../../container/ContextOrderFood";
 
 const ShowResturant = () => {
 
     const location = useLocation();
 
     const context = useContext(ContextOrderFood)
-    const findindexAsadorEtxebarri = context.resturant.findIndex(p => ("/" + p.name) === location.pathname)
-    const Accebility_resturant = context.resturant[findindexAsadorEtxebarri]
+    const findindexresturant = context.resturant.findIndex(p => ("/" + p.name) === location.pathname)
+    const Accebility_resturant = context.resturant[findindexresturant]
     
-    // const findgoodlemap = context.image.findIndex(p => p.id === 6)
-    // const Accebility_googlemap = context.image[findgoodlemap]
+    const findgoodlemap = context.image.findIndex(p => p.id === 6)
+    const Accebility_googlemap = context.image[findgoodlemap]
 
     const [show, setShow] = useState(false);
     const handleModal = () => setShow(!show);
@@ -42,7 +42,7 @@ const ShowResturant = () => {
 
             <div className={`${backgroundformd} d-flex p-2`}>
                 <div>
-                    <img src="" className={`forsizeimagcomponnentshowresturant rounded shadow`} />
+                    <img src={Accebility_resturant.logo} className={`forsizeimagcomponnentshowresturant rounded shadow`} />
                 </div>
                 <div className="d-flex flex-column" style={{ marginLeft: "6px" }}>
                     <div className="d-flex" style={{ marginBottom: "-10px" }}>
@@ -75,22 +75,18 @@ const ShowResturant = () => {
                 <Modal.Body>
                     <div className="row d-flex">
                         <div className="col-12 col-xl-3 col-lg-3">
-                            <img src="" className={`forsizeimagcomponnentshowresturant rounded shadow`} />
+                            <img src={Accebility_resturant.logo} className={`forsizeimagcomponnentshowresturant rounded shadow`} />
                         </div>
                         <div className="d-flex flex-column col-12 col-xl-6 col-lg-6">
-                            {/* name resturant */}
                             <h2>{Accebility_resturant.name}</h2>
-                            {/* tags selected by sellers */}
                             <p>Iranian, kebab, meat, cholo stew</p>
-                            {/* location resturant */}
                             <p>
                                 <FontAwesomeIcon className="pe-2" color='orange' icon={faMap} />
                                 No. 8, Hostal, next to Shirin Sarai Laden, Yasman Square, Velenjak, Student Blvd
                             </p>
                         </div>
                         <div className="col-12 col-xl-3 col-lg-3">
-                            {/* show location in online map google */}
-                            {/* <img {...Accebility_googlemap.img.props} /> */}
+                            <img {...Accebility_googlemap.img.props} />
                         </div>
                     </div>
                     <div className="row d-flex mt-2">

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import ShowFoodcom from "./ShowFoodcom";
-import ContextOrderFood from "../../../context/ContextOrderFood.js";
 import { NavLink, useLocation } from 'react-router-dom'
+import ContextOrderFood from "../../../container/ContextOrderFood";
 
 const MapinShowFood = () => {
 
