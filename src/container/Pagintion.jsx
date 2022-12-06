@@ -7,7 +7,7 @@ import Login from "../component/loginandregister/Login";
 import Register from "../component/loginandregister/Register";
 import AboutUs from "../component/Footer/AboutUs";
 import CollectingComponentsForMenuResturant from "../component/menuResturant/layout/CollectingComponentsForMenuResturant";
-import CollectingComponentsForMenuResturant from "../component/home-Page/layout/CollectingComponentsForHomepage";
+import CollectingComponentsForHomepage from "../component/home-Page/layout/CollectingComponentsForHomepage";
 
 
 const Paginition = () => {
