@@ -1,14 +1,14 @@
 import React, { Fragment, useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import AboutUs from "../component/Footer/AboutUs";
 import Footer from "../component/Footer/Footer";
 import Header from "../component/header/Header";
-import CollectingComponentsForHomepage from "../component/home-Page/layout/CollectingComponentsForHomepage";
+import Layout from "../component/menuResturant/orderResponsiv/Layout";
 import Login from "../component/loginandregister/Login";
 import Register from "../component/loginandregister/Register";
+import AboutUs from "../component/Footer/AboutUs";
 import CollectingComponentsForMenuResturant from "../component/menuResturant/layout/CollectingComponentsForMenuResturant";
-import Layout from "../component/menuResturant/orderResponsiv/Layout";
-import ContextOrderFood from "./ContextOrderFood";
+import CollectingComponentsForMenuResturant from "../component/home-Page/layout/CollectingComponentsForHomepage";
+
 
 const Paginition = () => {
 
