@@ -16,7 +16,6 @@ import LogoAlbino from '../img/Logo-For-Albino-Resturant.jpg';
 import LogoHamber from '../img/Logo-For-Hamber-Resturant.png';
 import LogoResturantfake from '../img/Logo-For-Resturantfake.jpg';
 import LogoTagline from '../img/Logo-For-Tagline-Here.png';
-import '../component/menuResturant/showFood/Csspartsshowfood.css'
 
 const GlobalState = ({ children }) => {
 

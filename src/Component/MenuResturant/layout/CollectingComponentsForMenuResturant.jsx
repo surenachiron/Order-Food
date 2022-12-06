@@ -48,7 +48,7 @@ const CollectingComponentsForMenuResturant = () => {
                                     <div className="border border-muted rounded">
                                         <MapforOrder lenghorder={foodsresturant.orderfood} />
                                     </div>
-                                    <FooterOrder resturantorder={foodsresturant.orderfood} />
+                                    <FooterOrder resturantorder={foodsresturant.orderfood} nameresturant={foodsresturant.name} />
                                 </Scrollbars>
                             </div>
                         </div>

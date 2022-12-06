@@ -139,7 +139,7 @@ const Header = () => {
                     </div>
                     <div className="col-9 col-sm-9 d-flex justify-content-center align-items-center">
                         <NavLink to='/' className=''>
-                            <img src="" alt='logosite' height='50px' width="80px" />
+                            <img src={LogoWebSite} alt='logosite' height='50px' width="80px" />
                         </NavLink>
                     </div>
                     <div className="col-2 col-sm-2 d-flex justify-content-end align-items-center">

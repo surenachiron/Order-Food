@@ -1,12 +1,17 @@
 import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
 
-const FooterOrder = ({ resturantorder }) => {
-    
+const FooterOrder = ({ resturantorder, nameresturant }) => {
+
     let sum = 0
-    for (let i = 0; i < resturantorder.length; i++){
+    for (let i = 0; i < resturantorder.length; i++) {
         let result = resturantorder[i].numberorderr * resturantorder[i].price
         sum += result
+    }
+
+    const setnameresturan = () => {
+        localStorage.removeItem('nameresturantforshoworder');
+        localStorage.setItem('nameresturantforshoworder', nameresturant)
     }
 
     let offfalse = ""
@@ -34,7 +39,7 @@ const FooterOrder = ({ resturantorder }) => {
                     </div>
                 </div>
                 <div className="d-flex align-items-center justify-content-center mt-2 mb-3">
-                    <NavLink to="/shoppingcart"><button className="btnproforadd" style={{ fontWeight: "bold", padding: "14px 41px" }}>the payment</button></NavLink>
+                    <NavLink to="/shoppingcart"><button onClick={() => setnameresturan} className="btnproforadd" style={{ fontWeight: "bold", padding: "14px 41px" }}>the payment</button></NavLink>
                 </div>
             </div>
     }
