@@ -7,14 +7,14 @@ import './fordetalisresturants.css'
 import { useLocation } from 'react-router-dom'
 import ContextOrderFood from "../../../container/ContextOrderFood";
 
-const ShowResturant = () => {
+const Showdetalisresturant = () => {
 
     const location = useLocation();
 
     const context = useContext(ContextOrderFood)
     const findindexresturant = context.resturant.findIndex(p => ("/" + p.name) === location.pathname)
     const Accebility_resturant = context.resturant[findindexresturant]
-    
+
     const findgoodlemap = context.image.findIndex(p => p.id === 6)
     const Accebility_googlemap = context.image[findgoodlemap]
 
@@ -42,7 +42,7 @@ const ShowResturant = () => {
 
             <div className={`${backgroundformd} d-flex p-2`}>
                 <div>
-                    <img src={Accebility_resturant.logo} className={`forsizeimagcomponnentshowresturant rounded shadow`} />
+                    <img src={Accebility_resturant.logo} className={`forsizeimagcomponnentshowresturant rounded shadow`} alt={Accebility_resturant.name} />
                 </div>
                 <div className="d-flex flex-column" style={{ marginLeft: "6px" }}>
                     <div className="d-flex" style={{ marginBottom: "-10px" }}>
@@ -75,7 +75,7 @@ const ShowResturant = () => {
                 <Modal.Body>
                     <div className="row d-flex">
                         <div className="col-12 col-xl-3 col-lg-3">
-                            <img src={Accebility_resturant.logo} className={`forsizeimagcomponnentshowresturant rounded shadow`} />
+                            <img src={Accebility_resturant.logo} className={`forsizeimagcomponnentshowresturant rounded shadow`} alt={Accebility_resturant.name} />
                         </div>
                         <div className="d-flex flex-column col-12 col-xl-6 col-lg-6">
                             <h2>{Accebility_resturant.name}</h2>
@@ -86,7 +86,7 @@ const ShowResturant = () => {
                             </p>
                         </div>
                         <div className="col-12 col-xl-3 col-lg-3">
-                            <img {...Accebility_googlemap.img.props} />
+                            <img {...Accebility_googlemap.img.props} alt="googlemap" />
                         </div>
                     </div>
                     <div className="row d-flex mt-2">
@@ -115,4 +115,4 @@ const ShowResturant = () => {
     )
 }
 
-export default ShowResturant;
+export default Showdetalisresturant;

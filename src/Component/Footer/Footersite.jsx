@@ -7,7 +7,7 @@ import { faTelegram, faTwitter, faInstagram, faLinkedin, faDiscord } from '@fort
 import './cssforFooter.css'
 
 
-const Footer = () => {
+const Footersite = () => {
 
     return (
         <Fragment>
@@ -55,4 +55,4 @@ const Footer = () => {
 
 }
 
-export default Footer
+export default Footersite

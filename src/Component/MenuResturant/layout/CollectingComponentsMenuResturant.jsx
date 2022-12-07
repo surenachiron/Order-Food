@@ -1,14 +1,15 @@
 import React, { Fragment, useEffect, useState, useContext } from "react";
-import MapinShowFood from "../showFood/MapinShowFood";
-import ShowResturant from "../detalisResturant/ShowResturant";
+import Forshowfoodcom from "../ShowFood/Forshowfoodcom";
+import Showdetalisresturant from "../DetalisResturant/Showdetalisresturant";
 import MapforOrder from "../orders/MapforOrder";
 import HeaderOrder from "../orders/HeaderOrder";
 import FooterOrder from "../orders/FooterOrder";
+
 import { useLocation } from 'react-router-dom'
 import { Scrollbars } from 'react-custom-scrollbars';
 import ContextOrderFood from "../../../container/ContextOrderFood";
 
-const CollectingComponentsForMenuResturant = () => {
+const CollectingComponentsMenuResturant = () => {
 
     const [widthscreen, setWidthCcreen] = useState(window.innerWidth);
     const updateDimensions = () => {
@@ -35,10 +36,10 @@ const CollectingComponentsForMenuResturant = () => {
             <div className="mx-auto px-3 mt-5">
                 <div className="row">
                     <div className="col-12 col-xl-3 col-lg-12 col-md-12 col-sm-12">
-                        <ShowResturant />
+                        <Showdetalisresturant />
                     </div>
                     <div className="col-12 col-xl-6 col-lg-8 col-md-12 col-sm-12">
-                        <MapinShowFood lenghorder={foodsresturant.orderfood.length} />
+                        <Forshowfoodcom lenghorder={foodsresturant.orderfood.length} />
                     </div>
                     {(widthscreen >= 992) ? (
                         <div className="col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12">
@@ -60,4 +61,4 @@ const CollectingComponentsForMenuResturant = () => {
 
 }
 
-export default CollectingComponentsForMenuResturant
+export default CollectingComponentsMenuResturant

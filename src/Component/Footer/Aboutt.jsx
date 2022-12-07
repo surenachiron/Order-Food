@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const AboutUs = () => {
+const Aboutt = () => {
 
     return (
         <Fragment>
@@ -21,4 +21,4 @@ const AboutUs = () => {
 
 }
 
-export default AboutUs;
+export default Aboutt;

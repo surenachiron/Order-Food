@@ -5,7 +5,7 @@ import './Csspartsshowfood.css'
 import Helmet from "react-helmet"
 
 
-const ShowFoodcom = ({ picture, nameFood, descriptionFood, price, numberorderr, AddedOrder, deletorder, Minesorder, notfoos }) => {
+const ShowFoodcom = ({ picture, nameFood, descriptionFood, price, numberorderr, nameresturant, AddedOrder, deletorder, Minesorder, notfoos }) => {
 
     let contentmain = ""
     let DeletNoneOrFlex = ""
@@ -28,6 +28,7 @@ const ShowFoodcom = ({ picture, nameFood, descriptionFood, price, numberorderr, 
         classdelet = "d-none"
     }
 
+    console.log(notfoos)
 
     if (notfoos === undefined || notfoos === "") {
         classimportantforshow = "container"
@@ -86,7 +87,7 @@ const ShowFoodcom = ({ picture, nameFood, descriptionFood, price, numberorderr, 
         <div className={classimportantforshow}>
             <div className="h-100">
                 <Helmet>
-                    <title>chef-food - AsadorEtxebarri</title>
+                    <title>chef-food - {nameresturant}</title>
                 </Helmet>
 
                 {contentmain}

@@ -6,7 +6,7 @@ import Thirdsection from "../3-thirdsection/Thirdsection";
 import Fourthsection from "../4-fourthsection/Fourthsection";
 import Fifthsection from '../5-fifthsection/Fifthsection'
 
-const CollectingComponentsForHomepage = () => {
+const CollectingComponentsHomepage = () => {
 
     return (
         <Fragment>
@@ -25,4 +25,4 @@ const CollectingComponentsForHomepage = () => {
 
 }
 
-export default CollectingComponentsForHomepage
+export default CollectingComponentsHomepage

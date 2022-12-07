@@ -3,7 +3,7 @@ import ShowFoodcom from "./ShowFoodcom";
 import { NavLink, useLocation } from 'react-router-dom'
 import ContextOrderFood from "../../../container/ContextOrderFood";
 
-const MapinShowFood = () => {
+const Forshowfoodcom = () => {
 
     const context = useContext(ContextOrderFood)
     const location = useLocation();
@@ -45,6 +45,7 @@ const MapinShowFood = () => {
                     descriptionFood={o.descriptionfood}
                     price={o.price}
                     numberorderr={o.numberorder}
+                    nameresturant={foodsresturant.name}
 
                     AddedOrder={() => context.AddedOrder(foodsresturant.name, o.id)}
                     deletorder={() => context.deletorder(foodsresturant.name, o.id)}
@@ -56,6 +57,7 @@ const MapinShowFood = () => {
         contentmain =
             <ShowFoodcom
                 notfoos={`${location.pathname.slice(1)} resturant not foods for order and show`}
+                nameresturant={foodsresturant.name}
             >
             </ShowFoodcom>
     }
@@ -72,4 +74,4 @@ const MapinShowFood = () => {
     )
 }
 
-export default MapinShowFood
+export default Forshowfoodcom

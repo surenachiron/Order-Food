@@ -1,12 +1,9 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/fontawesome-free-solid'
-import '../showFood/Csspartsshowfood.css'
-import ContextOrderFood from "../../../container/ContextOrderFood";
+import '../ShowFood/Csspartsshowfood.css'
 
 const OrderResponsiv = ({ nameresturant, nameFoodOrder, picture, price, numberorderr, AddinOrderFood, DeletinOrderFood, MinesinOrderFood, lenghtforim }) => {
-
-    const context = useContext(ContextOrderFood)
 
     let DeletNoneOrFlex = ""
     let MinesNoneOrFlex = ""

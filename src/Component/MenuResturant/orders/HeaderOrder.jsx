@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMotorcycle } from '@fortawesome/fontawesome-free-solid'
-import '../showFood/Csspartsshowfood.css'
+import '../ShowFood/Csspartsshowfood.css'
 
 const HeaderOrder = ({lenghorder}) => {
 

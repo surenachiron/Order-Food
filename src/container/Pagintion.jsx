@@ -1,13 +1,16 @@
 import React, { Fragment, useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import Footer from "../component/Footer/Footer";
-import Header from "../component/header/Header";
-import Layout from "../component/menuResturant/orderResponsiv/Layout";
-import Login from "../component/loginandregister/Login";
-import Register from "../component/loginandregister/Register";
-import AboutUs from "../component/Footer/AboutUs";
-import CollectingComponentsForMenuResturant from "../component/menuResturant/layout/CollectingComponentsForMenuResturant";
-import CollectingComponentsForHomepage from "../component/home-Page/layout/CollectingComponentsForHomepage";
+import Footersite from "../Component/Footer/Footersite";
+import Headersite from "../Component/header/Headersite";
+import Layoutorderpaymet from "../Component/MenuResturant/orderResponsiv/Layoutorderpaymet";
+import Loginn from "../Component/loginandregister/Loginn";
+import Registerr from "../Component/loginandregister/Registerr";
+import Aboutt from "../Component/Footer/Aboutt";
+import CollectingComponentsHomepage from "../Component/home-Page/layout/CollectingComponentsHomepage";
+
+import ContextOrderFood from "./ContextOrderFood";
+
+import CollectingComponentsMenuResturant from "../Component/MenuResturant/layout/CollectingComponentsMenuResturant";
 
 
 const Paginition = () => {
@@ -21,22 +24,22 @@ const Paginition = () => {
         header = ''
         footer = ''
     } else {
-        header = <Header />
-        footer = <Footer />
+        header = <Headersite />
+        footer = <Footersite />
     }
 
     return (
         <Fragment>
             {header}
             <Routes>
-                <Route path="/shoppingcart" element={<Layout />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/aboutus" element={<AboutUs />} />
+                <Route path="/shoppingcart" element={<Layoutorderpaymet />} />
+                <Route path="/login" element={<Loginn />} />
+                <Route path="/register" element={<Registerr />} />
+                <Route path="/aboutus" element={<Aboutt />} />
                 {context.resturant.map(o => (
-                    <Route path={o.name} element={<CollectingComponentsForMenuResturant />} />
+                    <Route path={o.name} element={<CollectingComponentsMenuResturant />} />
                 ))}
-                <Route path="/" exact element={<CollectingComponentsForHomepage />} />
+                <Route path="/" exact element={<CollectingComponentsHomepage />} />
             </Routes>
             {footer}
         </Fragment>

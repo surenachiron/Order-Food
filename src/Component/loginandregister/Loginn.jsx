@@ -10,7 +10,7 @@ import ReactLoading from 'react-loading';
 import LogoWebSite from './logo.jpg'
 import './loginandregistercss.css'
 
-const Login = () => {
+const Loginn = () => {
 
     const [getemail, setEmail] = useState("")
     const [getpassword, setPassword] = useState("")
@@ -155,4 +155,4 @@ const Login = () => {
 
 }
 
-export default Login
+export default Loginn

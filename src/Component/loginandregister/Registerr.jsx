@@ -10,7 +10,7 @@ import { toast } from 'react-toastify'
 import LogoWebSite from './logo.jpg'
 import './loginandregistercss.css'
 
-const Register = () => {
+const Registerr = () => {
 
     const [fullname, setFullname] = useState("");
     const [email, setEmail] = useState("");
@@ -141,4 +141,4 @@ const Register = () => {
 
 }
 
-export default Register
+export default Registerr

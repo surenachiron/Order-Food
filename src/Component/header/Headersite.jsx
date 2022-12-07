@@ -10,7 +10,7 @@ import { faClose } from "@fortawesome/free-solid-svg-icons";
 import './headdrcss.css'
 import ContextOrderFood from "../../container/ContextOrderFood";
 
-const Header = () => {
+const Headersite = () => {
 
 
     const ref = useRef()
@@ -168,4 +168,4 @@ const Header = () => {
 
 }
 
-export default Header
+export default Headersite

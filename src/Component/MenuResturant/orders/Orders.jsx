@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/fontawesome-free-solid'
-import '../showFood/Csspartsshowfood.css'
+import '../ShowFood/Csspartsshowfood.css'
 
 const Orders = ({ nameFoodOrder, price, numberorderr, AddinOrderFood, DeletinOrderFood, MinesinOrderFood, lengthFoodOrder }) => {
 

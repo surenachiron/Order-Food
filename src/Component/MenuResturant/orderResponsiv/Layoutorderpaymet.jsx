@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import MapforOrderResponsiv from './MapforOrderResponsiv'
 // import FooterOrder from "../orders/FooterOrder";
 
-const Layout = () => {
+const Layoutorderpaymet = () => {
 
     return (
         <Fragment>
@@ -17,4 +17,4 @@ const Layout = () => {
 
 }
 
-export default Layout
+export default Layoutorderpaymet
