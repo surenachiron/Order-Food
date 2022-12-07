@@ -43,7 +43,7 @@ const Registerr = () => {
             email,
             password
         };
-
+        console.log(user)
         try {
             if (Validator.current.allValid()) {
                 settestforloading(true)
@@ -59,9 +59,12 @@ const Registerr = () => {
                     settestforloading(false)
                     navigate('/', { replace: true })
                     reset();
+                    console.log(status, data)
                 } else {
                     toast.error("Registration was not successful", { position: "top-left" })
+                    console.log(status, data)
                 }
+                console.log(status, data)
             } else {
                 Validator.current.showMessages()
                 forupdaterender(1)
@@ -69,6 +72,7 @@ const Registerr = () => {
         } catch (ex) {
             settestforloading(false)
             toast.error("An error has occurred in the system", { position: "top-left" })
+            console.log(ex, ex.response.data.message)
         }
     };
 

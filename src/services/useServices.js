@@ -1,23 +1,16 @@
-import http from './httpsService';
 import config from './config.json';
+import axios from 'axios';
 
 
 export const registerUser = user => {
-    return http.post(
+    return axios.post(
         `${config.toplearnapi}/api/register`,
         JSON.stringify(user)
     );
 };
 
-export const loginUser = user => {
-    return http.post(
-        `${config.toplearnapi}/api/login`,
-        JSON.stringify(user)
-    )
-}
-
 export const testformforloginorno = () => {
-    return http.get(
+    return axios.get(
         `${config.apijasonplaceholder}`
     )
 }
