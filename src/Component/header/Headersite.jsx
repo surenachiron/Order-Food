@@ -1,17 +1,15 @@
-import React, { Fragment, useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Mobilmenu from "./Mobilmenu";
 import LogoWebSite from './logo.jpg'
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMap, faStore, faBars } from '@fortawesome/fontawesome-free-solid'
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 
 import './headdrcss.css'
-import ContextOrderFood from "../../container/ContextOrderFood";
 
 const Headersite = () => {
-
 
     const ref = useRef()
 
@@ -20,7 +18,7 @@ const Headersite = () => {
     useEffect(() => {
 
         const checkIfClickedOutside = e => {
-            if (isMenuOpen && ref.current && !ref.current.contains(e.target)) {
+            if (ref.current && !ref.current.contains(e.target)) {
                 setIsMenuOpen(false)
             }
         }
@@ -31,44 +29,26 @@ const Headersite = () => {
             document.removeEventListener("mousedown", checkIfClickedOutside)
         }
 
-    }, [isMenuOpen])
+    }, [ref])
 
-    let showmenumobil, logomenu;
-    if (isMenuOpen === true) {
-        showmenumobil = <Mobilmenu />
-        logomenu = faClose
-    } else {
-        logomenu = faBars
-    }
 
     const [widthscreen, setWidthCcreen] = useState(window.innerWidth);
     const updateDimensions = () => {
         setWidthCcreen(window.innerWidth);
     }
+
     useEffect(() => {
         window.addEventListener("resize", updateDimensions);
         return () => window.removeEventListener("resize", updateDimensions);
     }, []);
 
-    let numberOrders = 0
-    let hidenumber = ''
-    const context = useContext(ContextOrderFood)
-    const location = useLocation();
+    let showmenumobil, logomenu;
 
-    let foodsresturant;
-
-    for (let i = 0; i < context.resturant.length; i++) {
-        if (("/" + context.resturant[i].name) === (location.pathname)) {
-            foodsresturant = context.resturant[i]
-        }
-    }
-
-    if (foodsresturant === undefined) {
-        numberOrders = ''
-        hidenumber = 'd-none'
+    if (isMenuOpen === true && widthscreen <= 991) {
+        showmenumobil = <Mobilmenu />
+        logomenu = faClose
     } else {
-        numberOrders += foodsresturant.orderfood.length
-        hidenumber = 'block'
+        logomenu = faBars
     }
 
 
@@ -108,62 +88,48 @@ const Headersite = () => {
             </div>
     } else if (widthscreen >= 768) {
         largepageOrresponsivpage =
-            <div className="container shadowheader p-2">
-                <div className="row d-flex align-items-center" ref={ref}>
-                    <div className="col-md-1"></div>
-                    <div className="col-md-1">
+            <div className="container shadowheader p-2" >
+                <div className="row d-flex align-items-center mx-3">
+                    <div className="col-md-1 d-flex justify-content-end">
                         <FontAwesomeIcon icon={logomenu} onClick={() => setIsMenuOpen(oldState => !oldState)} style={{ cursor: "pointer" }} />
                     </div>
-                    <div className="col-md-7 d-flex align-items-center justify-content-center">
+                    <div className="col-md-10 d-flex align-items-center justify-content-center">
                         <input type="Search" className="px-5 py-1 rounded search-input" placeholder="Search in the restaurant" />
                     </div>
-                    <div className="col-md-3">
-                        <NavLink to="/shoppingcart" className="btn">
-                            <button type="button" className="btn position-relative">
-                                <FontAwesomeIcon icon="shopping-cart" className="text-danger" />
-                                <span className={`${hidenumber} position-absolute top-0 start-100 shopingcard-header badge rounded-pill bg-primary`}>{numberOrders}
-                                </span>
-                            </button>
-                        </NavLink>
+                    <div className="col-md-1">
                         <FontAwesomeIcon icon={faMap} className='text-warning' />
                     </div>
-                    {showmenumobil}
                 </div>
-            </div >
+            </div>
     } else {
         largepageOrresponsivpage =
             <div className="container shadowheader">
-                <div className="row m-auto d-flex justify-content-end align-items-center" ref={ref}>
+                <div className="row m-auto d-flex justify-content-end align-items-center">
                     <div className="col-1 col-sm-1 d-flex justify-content-end">
                         <FontAwesomeIcon icon={logomenu} onClick={() => setIsMenuOpen(oldState => !oldState)} style={{ cursor: "pointer" }} />
                     </div>
-                    <div className="col-9 col-sm-9 d-flex justify-content-center align-items-center">
+                    <div className="col-10 col-sm-10 d-flex justify-content-center align-items-center">
                         <NavLink to='/' className=''>
                             <img src={LogoWebSite} alt='logosite' height='50px' width="80px" />
                         </NavLink>
                     </div>
-                    <div className="col-2 col-sm-2 d-flex justify-content-end align-items-center">
-                        <NavLink to="/shoppingcart" className="btn">
-                            <button type="button" class="btn position-relative">
-                                <FontAwesomeIcon icon="shopping-cart" className="text-danger" />
-                                <span class={`${hidenumber} position-absolute top-0 start-100 shopingcard-header badge rounded-pill bg-primary`}>{numberOrders}
-                                    <span class="visually-hidden">unread messages</span>
-                                </span>
-                            </button>
-                        </NavLink>
-                        <FontAwesomeIcon icon={faMap} className='text-warning rounded-circle px-1 shadow-lg' />
+                    <div className="col-1 col-sm-1 d-flex justify-content-end align-items-center">
+                        <button className="btn">
+                            <FontAwesomeIcon icon={faMap} className='text-warning rounded-circle px-1 shadow-lg' />
+                        </button>
                     </div>
                 </div>
-                {showmenumobil}
             </div>
+
     }
 
     return (
-        <Fragment>
-            <header className="position-sticky top-0" style={{ zIndex: '1' }}>
+        <div className="position-sticky top-0 container" style={{ zIndex: '1' }} ref={ref}>
+            <header>
                 {largepageOrresponsivpage}
             </header>
-        </Fragment >
+            {showmenumobil}
+        </div >
     )
 
 }

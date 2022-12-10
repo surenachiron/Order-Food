@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/fontawesome-free-solid'
 import '../ShowFood/Csspartsshowfood.css'
 
-const OrderResponsiv = ({ nameresturant, nameFoodOrder, picture, price, numberorderr, AddinOrderFood, DeletinOrderFood, MinesinOrderFood, lenghtforim }) => {
+const OrderResponsiv = ({ nameFoodOrder, picture, price, numberorderr, AddinOrderFood, DeletinOrderFood, MinesinOrderFood, lenghtforim }) => {
 
     let DeletNoneOrFlex = ""
     let MinesNoneOrFlex = ""
@@ -25,11 +25,9 @@ const OrderResponsiv = ({ nameresturant, nameFoodOrder, picture, price, numberor
     let { truee } = "";
     if (lenghtforim >= 1) {
         truee =
-        
-            <div className="d-flex">
-
-                <div className="mt-3 card-img-right" style={{ marginRight: "5px", padding: "0px 9px" }}>
-                    {picture}
+            <div className="d-flex col-lg-6 col-sm-12 mt-1 mb-2 p-1">
+                <div className="mt-3 card-img-right">
+                    <img src={picture} alt={nameFoodOrder} width='53' height='54' />
                 </div>
 
                 <div className={`${classdelet} d-flex flex-column align-items-start justify-content-center mt-2`}>
@@ -39,7 +37,7 @@ const OrderResponsiv = ({ nameresturant, nameFoodOrder, picture, price, numberor
                     <div className="d-flex">
 
                         <div className="d-flex align-items-end justify-content-end">
-                            <p className="mx-3 m-1 text-muted">{price}$ : </p>
+                            <p className="mx-3 m-1 text-muted" style={{width:"45px"}}>{price}$ : </p>
                         </div>
 
                         <div className="d-flex">
@@ -58,6 +56,7 @@ const OrderResponsiv = ({ nameresturant, nameFoodOrder, picture, price, numberor
                         </div>
                     </div>
                 </div>
+                
             </div>
     }
 

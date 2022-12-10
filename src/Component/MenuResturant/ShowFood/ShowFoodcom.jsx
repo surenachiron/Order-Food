@@ -28,8 +28,6 @@ const ShowFoodcom = ({ picture, nameFood, descriptionFood, price, numberorderr, 
         classdelet = "d-none"
     }
 
-    console.log(notfoos)
-
     if (notfoos === undefined || notfoos === "") {
         classimportantforshow = "container"
         contentmain =
@@ -37,7 +35,7 @@ const ShowFoodcom = ({ picture, nameFood, descriptionFood, price, numberorderr, 
 
                 <div className="d-flex">
                     <div className="mt-3 card-img-right" style={{ marginRight: "5px", padding: "0px 9px" }}>
-                        {picture}
+                        <img src={picture} alt={descriptionFood} width='112' height='112' />
                     </div>
                     <div className="card-body d-flex flex-column w-100" style={{ padding: "14px", overflowX: "auto" }}>
                         <h6 className="card-title w-100 titleshowfood">{nameFood}

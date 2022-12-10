@@ -12,7 +12,7 @@ const MapforOrderResponsiv = () => {
 
 
     for (let i = 0; i < context.resturant.length; i++) {
-        if (localStorage.getItem('nameresturantforshoworder') === context.resturant[i].name) { 
+        if (localStorage.getItem('nameresturantforshoworder') === context.resturant[i].name) {
             findresturant = context.resturant[i]
         }
     }
@@ -31,7 +31,7 @@ const MapforOrderResponsiv = () => {
         <Fragment>
             {Trash}
             {findresturant.orderfood.map(o => (
-                <div className="col-12 col-lg-6 col-sm-12 col-md-6">
+                <div className="d-flex align-items-center justify-items-center col-12 col-lg-6 col-sm-12 col-md-6">
                     <OrderResponsiv
                         nameresturant={findresturant.name}
                         nameFoodOrder={o.nameFoodOrder}
