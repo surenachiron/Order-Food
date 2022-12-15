@@ -1,12 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import ShowFoodcom from "./ShowFoodcom";
-import { NavLink, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation } from "react-router";
 import ContextOrderFood from "../../../container/ContextOrderFood";
+import { Modal } from "react-bootstrap";
+import Modallogin from "../orders/Modalloginregister/Modallogin";
+import Modallregister from "../orders/Modalloginregister/Modalregister";
+
 
 const Forshowfoodcom = () => {
 
     const context = useContext(ContextOrderFood)
     const location = useLocation();
+    const navigate = useNavigate();
 
     let foodsresturant;
     let contentmain = "";
@@ -26,12 +31,58 @@ const Forshowfoodcom = () => {
         return () => window.removeEventListener("resize", updateDimensions);
     }, []);
 
+    const [showlogin, setShowlogin] = useState(false);
+    const handleModallogin = () => setShowlogin(!showlogin);
+    const [showregister, setShowregister] = useState(false);
+    const handleModalregister = () => setShowregister(!showregister);
+
+    const closeloginopenregister = () => {
+        handleModallogin();
+        handleModalregister();
+    }
+
+    let loginmodal =
+        <Modal
+            size="md"
+            show={showlogin}
+            onHide={handleModallogin}
+            centered
+        >
+            <Modal.Header closeButton className="mx-3" />
+            <Modal.Body>
+                <Modallogin nameresturant={foodsresturant.name} handelopen={() => closeloginopenregister()} />
+            </Modal.Body>
+        </Modal>;
+
+    let registermodal =
+        <Modal
+            size="md"
+            show={showregister}
+            onHide={handleModalregister}
+            centered
+        >
+            <Modal.Header closeButton />
+            <Modal.Body>
+                <Modallregister nameresturant={foodsresturant.name} handelopen={() => closeloginopenregister()} />
+            </Modal.Body>
+        </Modal>;
+
+    const setnameresturan = () => {
+        if (document.cookie !== null && document.cookie !== undefined && document.cookie !== '') {
+            localStorage.removeItem('nameresturantforshoworder');
+            localStorage.setItem('nameresturantforshoworder', foodsresturant.name)
+            navigate('/shoppingcart')
+            setShowlogin(false)
+            setShowregister(false)
+        } else {
+            handleModallogin()
+        }
+    }
+
     let paymentorder = "";
     if (widthscreen <= 991 && foodsresturant.orderfood.length >= 1) paymentorder =
         <div>
-            <NavLink to='/shoppingcart'>
-                <button className="btn btn-warning fw-bold w-100">payment</button>
-            </NavLink>
+            <button onClick={setnameresturan} className="btn btn-warning fw-bold w-100">payment</button>
         </div>
     else paymentorder = "";
 
@@ -69,6 +120,8 @@ const Forshowfoodcom = () => {
                 <div style={{ width: "98%" }} className="position-fixed bottom-0 container">
                     {paymentorder}
                 </div>
+                {loginmodal}
+                {registermodal}
             </div>
         </div>
     )

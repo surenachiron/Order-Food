@@ -5,12 +5,9 @@ import Headersite from "../Component/header/Headersite";
 import Layoutorderpaymet from "../Component/MenuResturant/orderResponsiv/Layoutorderpaymet";
 import Loginn from "../Component/loginandregister/Loginn";
 import Registerr from "../Component/loginandregister/Registerr";
-import Aboutt from "../Component/Footer/Aboutt";
 import CollectingComponentsHomepage from "../Component/home-Page/layout/CollectingComponentsHomepage";
-
-import ContextOrderFood from "./ContextOrderFood";
-
 import CollectingComponentsMenuResturant from "../Component/MenuResturant/layout/CollectingComponentsMenuResturant";
+import ContextOrderFood from "./ContextOrderFood";
 
 
 const Paginition = () => {
@@ -35,7 +32,6 @@ const Paginition = () => {
                 <Route path="/shoppingcart" element={<Layoutorderpaymet />} />
                 <Route path="/login" element={<Loginn />} />
                 <Route path="/register" element={<Registerr />} />
-                <Route path="/aboutus" element={<Aboutt />} />
                 {context.resturant.map(o => (
                     <Route path={o.name} element={<CollectingComponentsMenuResturant />} />
                 ))}

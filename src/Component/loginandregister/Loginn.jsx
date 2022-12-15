@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useRef } from "react";
 import { NavLink, useNavigate } from 'react-router-dom'
+import Cookies from 'universal-cookie';
 
 import { testformforloginorno } from '../../services/useServices'
 import SimpleReactValidator from 'simple-react-validator';
@@ -11,6 +12,8 @@ import LogoWebSite from './logo.jpg'
 import './loginandregistercss.css'
 
 const Loginn = () => {
+
+    const cookies = new Cookies();
 
     const [getemail, setEmail] = useState("")
     const [getpassword, setPassword] = useState("")
@@ -47,6 +50,7 @@ const Loginn = () => {
                 data.map(dt => {
                     if (getemail === dt.email && getpassword === dt.username) {
                         toast.success("You have successfully entered the site", { position: "top-left" })
+                        cookies.set('user', dt.username, { path: '/' })
                         settestforloading(false)
                         epmtystate()
                         navigate('/', { replace: true })

@@ -1,5 +1,4 @@
 {
-    "toplearnapi": "https://toplearnapi.ghorbany.dev",
     "apijasonplaceholder" : "http://jsonplaceholder.typicode.com/users",
     "localapi": "localhost:3000"
 }

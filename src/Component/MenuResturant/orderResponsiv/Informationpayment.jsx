@@ -16,8 +16,8 @@ const Informationpayment = () => {
                     <div className="d-flex justify-content-between align-items-center rounded px-3" style={{ border: "1px solid #00b862" }}>
                         <div className="d-flex align-items-center">
                             <FontAwesomeIcon icon={faMapMarkerAlt} className="fa-sm me-3" style={{ height: "25px" }} color="orange" />
-                            <div>
-                                <h4>test</h4>
+                            <div className="mt-2">
+                                <h6>test</h6>
                                 <p>Tehran, Pasdaran ....</p>
                             </div>
                         </div>
@@ -29,8 +29,8 @@ const Informationpayment = () => {
                     <div className="d-flex justify-content-between align-items-center rounded px-3" style={{ border: "1px solid #00b862" }}>
                         <div className="d-flex align-items-center">
                             <FontAwesomeIcon icon={faPaypal} className="fa-sm me-3" style={{ height: "25px" }} color="orange" />
-                            <div>
-                                <h4>online payment</h4>
+                            <div className="mt-2">
+                                <h6>online payment</h6>
                                 <p>application online</p>
                             </div>
                         </div>

@@ -1,7 +1,12 @@
-import React, { Fragment } from "react";
-import { NavLink } from "react-router-dom";
+import React, { Fragment, useState } from "react";
+import { Modal } from "react-bootstrap";
+import { useNavigate } from "react-router";
+import Modallogin from "./Modalloginregister/Modallogin";
+import Modallregister from "./Modalloginregister/Modalregister";
 
 const FooterOrder = ({ resturantorder, nameresturant }) => {
+
+    let navigate = useNavigate();
 
     let sum = 0
     for (let i = 0; i < resturantorder.length; i++) {
@@ -9,10 +14,55 @@ const FooterOrder = ({ resturantorder, nameresturant }) => {
         sum += result
     }
 
-    const setnameresturan = () => {
-        localStorage.removeItem('nameresturantforshoworder');
-        localStorage.setItem('nameresturantforshoworder', nameresturant)
+    const [showlogin, setShowlogin] = useState(false);
+    const handleModallogin = () => setShowlogin(!showlogin);
+    const [showregister, setShowregister] = useState(false);
+    const handleModalregister = () => setShowregister(!showregister);
+
+    const closeloginopenregister = () => {
+        handleModallogin();
+        handleModalregister();
     }
+
+    let loginmodal =
+        <Modal
+            size="md"
+            show={showlogin}
+            onHide={handleModallogin}
+            centered
+        >
+            <Modal.Header closeButton className="mx-3" />
+            <Modal.Body>
+                <Modallogin nameresturant={nameresturant} handelopen={() => closeloginopenregister()} />
+            </Modal.Body>
+        </Modal>;
+
+    let registermodal =
+        <Modal
+            size="md"
+            show={showregister}
+            onHide={handleModalregister}
+            centered
+        >
+            <Modal.Header closeButton />
+            <Modal.Body>
+                <Modallregister nameresturant={nameresturant} handelopen={() => closeloginopenregister()} />
+            </Modal.Body>
+        </Modal>;
+
+    const setnameresturan = () => {
+        if (document.cookie !== null && document.cookie !== undefined && document.cookie !== '') {
+            localStorage.removeItem('nameresturantforshoworder');
+            localStorage.setItem('nameresturantforshoworder', nameresturant)
+            navigate('/shoppingcart')
+            setShowlogin(false)
+            setShowregister(false)
+        } else {
+            handleModallogin()
+        }
+    }
+
+
 
     let offfalse = ""
     if (resturantorder.length >= 1) {
@@ -39,15 +89,17 @@ const FooterOrder = ({ resturantorder, nameresturant }) => {
                     </div>
                 </div>
                 <div className="d-flex align-items-center justify-content-center mt-2 mb-3">
-                    <NavLink to="/shoppingcart"><button onClick={() => setnameresturan} className="btnproforadd" style={{ fontWeight: "bold", padding: "14px 41px" }}>the payment</button></NavLink>
+                    <button onClick={setnameresturan} className="btnproforadd" style={{ fontWeight: "bold", padding: "14px 41px" }}>the payment</button>
                 </div>
+                {loginmodal}
+                {registermodal}
             </div>
     }
 
     return (
         <Fragment>
             {offfalse}
-        </Fragment>
+        </Fragment >
     )
 }
 

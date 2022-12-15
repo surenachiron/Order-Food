@@ -21,26 +21,11 @@ const Showdetalisresturant = () => {
     const [show, setShow] = useState(false);
     const handleModal = () => setShow(!show);
 
-    const [widthscreen, setWidthCcreen] = useState(window.innerWidth);
-    const updateDimensions = () => {
-        setWidthCcreen(window.innerWidth);
-    }
-    useEffect(() => {
-        window.addEventListener("resize", updateDimensions);
-        return () => window.removeEventListener("resize", updateDimensions);
-    }, []);
-
-    let backgroundformd = ''
-    if (widthscreen >= 767 && widthscreen <= 1200) {
-        backgroundformd = ("backgrounmedium")
-    } else {
-        backgroundformd = ''
-    }
 
     return (
         <div className="m-2 position-sticky" style={{ top: '4.4rem' }}>
 
-            <div className={`${backgroundformd} d-flex p-2`}>
+            <div className={`d-flex p-2`}>
                 <div>
                     <img src={Accebility_resturant.logo} className={`forsizeimagcomponnentshowresturant rounded shadow`} alt={Accebility_resturant.name} />
                 </div>
@@ -53,7 +38,7 @@ const Showdetalisresturant = () => {
                         <p className="ms-1 fw-normal">(327comment)</p>
                     </div>
                     <div style={{ width: "200px", height: "65px", overflow: "hidden" }}>
-                        <p className="h5 text-dark">{Accebility_resturant.name}</p>
+                        <h5 className="text-dark">{Accebility_resturant.name}</h5>
                     </div>
                 </div>
             </div>
@@ -107,9 +92,6 @@ const Showdetalisresturant = () => {
                         </div>
                     </div>
                 </Modal.Body>
-                <ModalFooter>
-
-                </ModalFooter>
             </Modal>
         </div >
     )

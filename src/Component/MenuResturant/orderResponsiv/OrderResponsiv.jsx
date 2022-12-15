@@ -62,9 +62,6 @@ const OrderResponsiv = ({ nameFoodOrder, picture, price, numberorderr, AddinOrde
 
     return (
         <Fragment>
-            {/* <div>
-                {nameresturant}
-            </div> */}
             {truee}
         </Fragment>
     )

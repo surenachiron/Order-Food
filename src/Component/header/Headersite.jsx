@@ -1,17 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
 import Mobilmenu from "./Mobilmenu";
 import LogoWebSite from './logo.jpg'
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import Cookies from 'universal-cookie';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMap, faStore, faBars } from '@fortawesome/fontawesome-free-solid'
+import { faMap, faBars, faUser } from '@fortawesome/fontawesome-free-solid'
 import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-toastify";
 
 import './headdrcss.css'
 
 const Headersite = () => {
 
+    const cookies = new Cookies();
+    const navigate = useNavigate();
     const ref = useRef()
+
+    const [getShow, setShow] = useState(false)
+
+    const onoff = () => setShow(!getShow)
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -51,6 +59,50 @@ const Headersite = () => {
         logomenu = faBars
     }
 
+    const cookieremove = () => {
+        cookies.remove("user")
+        onoff()
+        toast.success("You have successfully exited the site", { position: "top-left" })
+        navigate('/', { replace: true })
+    }
+
+    let letshowpropertielogin = ""
+    let letshowpropertieloginmd = ""
+    let letshowpropertieloginsm = ""
+    if (getShow === true && cookies.get("user") !== null && cookies.get("user") !== undefined && cookies.get("user") !== "") {
+        letshowpropertielogin =
+            <div className="d-flex flex-column align-items-center " style={{ zIndex: "5", position: "absolute", margin: "0 20% 0 0" }}>
+                <button className="btn rounded" style={{ backgroundColor: "white", border: "1px solid #ededed" }} onClick={() => cookieremove()}>Logout</button>
+            </div>
+        letshowpropertieloginmd =
+            <div className="d-flex flex-column align-items-center " style={{ zIndex: "5", position: "absolute", margin: "0 16% 0 0" }}>
+                <button className="btn rounded" style={{ backgroundColor: "white", border: "1px solid #ededed" }} onClick={() => cookieremove()}>Logout</button>
+            </div>
+        letshowpropertieloginsm = 
+            <div className="d-flex flex-column align-items-center " style={{ zIndex: "5", position: "absolute", margin: "0 10% 0 0" }}>
+                <button className="btn rounded" style={{ backgroundColor: "white", border: "1px solid #ededed" }} onClick={() => cookieremove()}>Logout</button>
+            </div>
+    }
+
+    let userboxorlogin = ""
+    let userboxorloginmdsm = ""
+    if (cookies.get("user") !== null && cookies.get("user") !== undefined && cookies.get("user") !== "") {
+        userboxorlogin =
+            <div className="d-flex align-items-center justify-content-center btn" onClick={() => onoff()}>
+                <span>{cookies.get("user")}</span>
+                <div className="border rounded-circle d-flex align-items-center justify-content-center ms-1" style={{ height: "40px", width: "40px" }}>
+                    <FontAwesomeIcon icon={faUser} color='orange' className="mb-1" />
+                </div>
+            </div>
+        userboxorloginmdsm =
+            <div className="border rounded-circle d-flex align-items-center justify-content-center p-2 btn" style={{ height: "30px" }} onClick={() => onoff()}>
+                <FontAwesomeIcon icon={faUser} color='orange' />
+            </div>
+    } else {
+        userboxorlogin =
+            <NavLink to="/login" className="btn btn-warning buttonlogin px-2">Sign in or join</NavLink>
+    }
+
 
     let largepageOrresponsivpage = ''
     if (widthscreen >= 992) {
@@ -62,42 +114,43 @@ const Headersite = () => {
                             <img src={LogoWebSite} alt='logosite' width="100px" height="80px" />
                         </NavLink>
                     </div>
-                    <div id="Location" className="col-lg-3 d-flex flex-column align-items-start justify-content-start">
-                        <p className="mx-1 fw-bold">
-                            Selected address
-                        </p>
-                        <div className="d-flex">
-                            <FontAwesomeIcon icon={faMap} color='orange' className="mx-1" />
-                            <h6 className="mx-1 text-muted">Tehran, Pasdaran</h6>
-                            <p className="mx-1 text-muted">....</p>
+                    <div id="Location" className="col-lg-3 d-flex flex-column align-items-center justify-content-center">
+                        <div >
+                            <p className="m-0 p-0 mx-1 fw-bold">
+                                Selected address
+                            </p>
+                            <div className="d-flex align-items-center justify-content-center">
+                                <FontAwesomeIcon icon={faMap} color='orange' className="mx-1 mb-2" />
+                                <h6 className="mx-1 text-muted">Tehran, Pasdaran</h6>
+                                <p className="mx-1 text-muted">....</p>
+                            </div>
                         </div>
                     </div>
                     <div id="Search" className="col-lg-4 d-flex align-items-center justify-content-center">
                         <input type="Search" className="px-5 py-2 rounded search-input" placeholder="Search in the restaurant" />
                     </div>
+                    <div className="col-lg-2 d-flex align-items-center justify-content-end"></div>
                     <div className="col-lg-2 d-flex align-items-center justify-content-center">
-                        <button className="btn d-flex btn-danger buttonellers">
-                            <FontAwesomeIcon icon={faStore} color='orange' />
-                            <h5 className="taghsellers">sellers</h5>
-                        </button>
+                        {userboxorlogin}
+                        {letshowpropertielogin}
                     </div>
-                    <div id="LoginOrSubmit" className="col-lg-2 d-flex align-items-center justify-content-center">
-                        <NavLink to="/login" className="btn btn-warning buttonlogin p-2">Sign in or join</NavLink>
-                    </div>
+
                 </div>
             </div>
     } else if (widthscreen >= 768) {
         largepageOrresponsivpage =
             <div className="container shadowheader p-2" >
                 <div className="row d-flex align-items-center mx-3">
-                    <div className="col-md-1 d-flex justify-content-end">
+                    <div className="col-md-2 d-flex justify-content-start">
                         <FontAwesomeIcon icon={logomenu} onClick={() => setIsMenuOpen(oldState => !oldState)} style={{ cursor: "pointer" }} />
+                        <FontAwesomeIcon icon={faMap} className='text-warning ms-5' />
                     </div>
-                    <div className="col-md-10 d-flex align-items-center justify-content-center">
+                    <div className="col-md-8 d-flex align-items-center justify-content-center">
                         <input type="Search" className="px-5 py-1 rounded search-input" placeholder="Search in the restaurant" />
                     </div>
-                    <div className="col-md-1">
-                        <FontAwesomeIcon icon={faMap} className='text-warning' />
+                    <div className="col-2 col-md-2 d-flex justify-content-center align-items-center">
+                        {letshowpropertieloginmd}
+                        {userboxorloginmdsm}
                     </div>
                 </div>
             </div>
@@ -117,6 +170,8 @@ const Headersite = () => {
                         <button className="btn">
                             <FontAwesomeIcon icon={faMap} className='text-warning rounded-circle px-1 shadow-lg' />
                         </button>
+                        {letshowpropertieloginsm}
+                        {userboxorloginmdsm}
                     </div>
                 </div>
             </div>
