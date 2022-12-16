@@ -2,15 +2,18 @@ import React, { Fragment, useRef, useState } from "react";
 import { NavLink, useNavigate } from 'react-router-dom'
 
 import SimpleReactValidator from 'simple-react-validator';
-import { registerUser } from '../../services/useServices';
+// import { registerUser } from '../../services/useServices';
 import Helmet from "react-helmet";
 import ReactLoading from 'react-loading';
 import { toast } from 'react-toastify'
+import Cookies from 'universal-cookie';
 
 import LogoWebSite from './logo.jpg'
 import './loginandregistercss.css'
 
 const Registerr = () => {
+
+    const cookies = new Cookies();
 
     const [fullname, setFullname] = useState("");
     const [email, setEmail] = useState("");
@@ -36,44 +39,64 @@ const Registerr = () => {
         showhide = "d-block"
     }
 
+    // const handleSubmit = async event => {
+    // event.preventDefault();
+    // const user = {
+    //     fullname,
+    //     email,
+    //     password
+    // };
+    // console.log(user)
+    // try {
+    //     if (Validator.current.allValid()) {
+    //         settestforloading(true)
+    //         const { status, data } = await registerUser(user);
+    //         if (status === 201) {
+    //             toast.success('Registration was successful', {
+    //                 position: "top-left",
+    //                 autoClose: 3000,
+    //                 closeOnClick: true,
+    //                 pauseOnHover: true,
+    //             });
+    //             localStorage.setItem("token", data.token);
+    //             settestforloading(false)
+    //             navigate('/', { replace: true })
+    //             reset();
+    //             console.log(status, data)
+    //         } else {
+    //             toast.error("Registration was not successful", { position: "top-left" })
+    //             console.log(status, data)
+    //         }
+    //         console.log(status, data)
+    //     } else {
+    //         Validator.current.showMessages()
+    //         forupdaterender(1)
+    //     }
+    // } catch (ex) {
+    //     settestforloading(false)
+    //     toast.error("An error has occurred in the system", { position: "top-left" })
+    //     console.log(ex, ex.response.data.message)
+    // }
+    // };
+
     const handleSubmit = async event => {
-        // event.preventDefault();
-        // const user = {
-        //     fullname,
-        //     email,
-        //     password
-        // };
-        // console.log(user)
-        // try {
-        //     if (Validator.current.allValid()) {
-        //         settestforloading(true)
-        //         const { status, data } = await registerUser(user);
-        //         if (status === 201) {
-        //             toast.success('Registration was successful', {
-        //                 position: "top-left",
-        //                 autoClose: 3000,
-        //                 closeOnClick: true,
-        //                 pauseOnHover: true,
-        //             });
-        //             localStorage.setItem("token", data.token);
-        //             settestforloading(false)
-        //             navigate('/', { replace: true })
-        //             reset();
-        //             console.log(status, data)
-        //         } else {
-        //             toast.error("Registration was not successful", { position: "top-left" })
-        //             console.log(status, data)
-        //         }
-        //         console.log(status, data)
-        //     } else {
-        //         Validator.current.showMessages()
-        //         forupdaterender(1)
-        //     }
-        // } catch (ex) {
-        //     settestforloading(false)
-        //     toast.error("An error has occurred in the system", { position: "top-left" })
-        //     console.log(ex, ex.response.data.message)
-        // }
+        event.preventDefault();
+        if (Validator.current.allValid()) {
+            settestforloading(true)
+            cookies.set('user', fullname, { path: '/' })
+            toast.success('Registration was successful', {
+                position: "top-left",
+                autoClose: 3000,
+                closeOnClick: true,
+                pauseOnHover: true,
+            });
+            settestforloading(false)
+            reset();
+            navigate('/')
+        } else {
+            Validator.current.showMessages()
+            forupdaterender(1)
+        }
     };
 
     return (

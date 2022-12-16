@@ -3,11 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/fontawesome-free-solid'
 import './Csspartsshowfood.css'
 import Helmet from "react-helmet"
+import nonepicture from '../../../img/nonepicture.png'
 
 
 const ShowFoodcom = ({ picture, nameFood, descriptionFood, price, numberorderr, nameresturant, AddedOrder, deletorder, Minesorder, notfoos }) => {
 
     let contentmain = ""
+    let pictureim = ""
     let DeletNoneOrFlex = ""
     let classimportantforshow = ""
     let MinesNoneOrFlex = ""
@@ -28,6 +30,9 @@ const ShowFoodcom = ({ picture, nameFood, descriptionFood, price, numberorderr, 
         classdelet = "d-none"
     }
 
+    if (picture === "") pictureim = nonepicture
+    else pictureim = picture
+
     if (notfoos === undefined || notfoos === "") {
         classimportantforshow = "container"
         contentmain =
@@ -35,7 +40,7 @@ const ShowFoodcom = ({ picture, nameFood, descriptionFood, price, numberorderr, 
 
                 <div className="d-flex">
                     <div className="mt-3 card-img-right" style={{ marginRight: "5px", padding: "0px 9px" }}>
-                        <img src={picture} alt={descriptionFood} width='112' height='112' />
+                        <img src={pictureim} alt={descriptionFood} width='112' height='112' />
                     </div>
                     <div className="card-body d-flex flex-column w-100" style={{ padding: "14px", overflowX: "auto" }}>
                         <h6 className="card-title w-100 titleshowfood">{nameFood}
@@ -82,7 +87,7 @@ const ShowFoodcom = ({ picture, nameFood, descriptionFood, price, numberorderr, 
     }
 
     return (
-        <div className={classimportantforshow}>
+        <div className={`${classimportantforshow} mx-0`}>
             <div className="h-100">
                 <Helmet>
                     <title>chef-food - {nameresturant}</title>

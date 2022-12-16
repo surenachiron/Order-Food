@@ -64,6 +64,7 @@ const Headersite = () => {
         onoff()
         toast.success("You have successfully exited the site", { position: "top-left" })
         navigate('/', { replace: true })
+        window.location.reload()
     }
 
     let letshowpropertielogin = ""

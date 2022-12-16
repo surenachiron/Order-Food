@@ -1,11 +1,14 @@
 import React, { Fragment, useRef, useState } from "react";
 import { NavLink, useNavigate } from 'react-router-dom'
 
+import { toast } from "react-toastify";
 import SimpleReactValidator from 'simple-react-validator';
-import { testformforloginorno } from "../../../../services/useServices";
 import ReactLoading from 'react-loading';
+import Cookies from 'universal-cookie';
 
 const Modallregister = ({ nameresturant, handelopen }) => {
+
+    const cookies = new Cookies();
 
     const [getusername, setUsername] = useState("");
     const [getemail, setEmail] = useState("");
@@ -25,43 +28,24 @@ const Modallregister = ({ nameresturant, handelopen }) => {
     }))
 
     const handleSubmit = async event => {
-        // event.preventDefault();
-        // const user = {
-        //     fullname,
-        //     email,
-        //     password
-        // };
-        // console.log(user)
-        // try {
-        //     if (Validator.current.allValid()) {
-        //         settestforloading(true)
-        //         const { status, data } = await registerUser(user);
-        //         if (status === 201) {
-        //             toast.success('Registration was successful', {
-        //                 position: "top-left",
-        //                 autoClose: 3000,
-        //                 closeOnClick: true,
-        //                 pauseOnHover: true,
-        //             });
-        //             localStorage.setItem("token", data.token);
-        //             settestforloading(false)
-        //             navigate('/', { replace: true })
-        //             reset();
-        //             console.log(status, data)
-        //         } else {
-        //             toast.error("Registration was not successful", { position: "top-left" })
-        //             console.log(status, data)
-        //         }
-        //         console.log(status, data)
-        //     } else {
-        //         Validator.current.showMessages()
-        //         forupdaterender(1)
-        //     }
-        // } catch (ex) {
-        //     settestforloading(false)
-        //     toast.error("An error has occurred in the system", { position: "top-left" })
-        //     console.log(ex, ex.response.data.message)
-        // }
+        event.preventDefault();
+        if (Validator.current.allValid()) {
+            settestforloading(true)
+            localStorage.setItem('nameresturantforshoworder', nameresturant)
+            cookies.set('user', getusername, { path: '/' })
+            toast.success('Registration was successful', {
+                position: "top-left",
+                autoClose: 3000,
+                closeOnClick: true,
+                pauseOnHover: true,
+            });
+            settestforloading(false)
+            reset();
+            navigate('/shoppingcart')
+        } else {
+            Validator.current.showMessages()
+            forupdaterender(1)
+        }
     };
 
     let showhide = ""
@@ -78,7 +62,7 @@ const Modallregister = ({ nameresturant, handelopen }) => {
                 <h4>Checking information</h4>
             </div></div>) : ""}
 
-            <div className={`${showhide}container`}>
+            <div className={`${showhide} container`}>
                 <div className="row">
                     <div className="col-12 col-xl-12 col-lg-12 col-md-12 d-flex align-items-center justify-content-center px-4">
                         <div className="d-flex flex-column align-items-start justify-content-start">
@@ -111,7 +95,7 @@ const Modallregister = ({ nameresturant, handelopen }) => {
                                 }} />
                                 {Validator.current.message('password', getpassword, 'required|min:6')}
 
-                                <input type="submit" value="Continue" className="btn btn-warning w-100 mt-3 mb-2" />
+                                <input type="submit" value="Continue" className="btn btn-warning w-100 mt-3 mb-2" onClick={handleSubmit} />
 
                                 <p className="fortagp">By creating an account, you agree to Amazon's <NavLink to='/'>Conditions of Use</NavLink> and <NavLink to='/'>Privacy Notice</NavLink></p>
                                 <div className="d-flex flex-column align-items-center m-auto">

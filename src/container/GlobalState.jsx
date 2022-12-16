@@ -7,21 +7,62 @@ import kebabimage from '../img/kebabforOrderFood.jpg';
 import pizzaimage from '../img/Piazza-for-Order-Food.jpg';
 import diziimage from '../img/dizi-for-Order_Food.jpg';
 import beefstroganoffimage from '../img/Beef-Stroganoff-for-Order-Food.jpg';
-import caesarsaladimage from '../img/Caesar-salad-for-Order-Food.png';
-import googlemaps from '../img/googlemap.png';
+import caesarsaladimage from '../img/Caesar-salad-for-Order-Food.jpg';
+import halim from '../img/halim.jpg'
+import ashreshteh from '../img/ash-reshteh.jpg'
+import sholezard from '../img/shole-zard.jpg'
+import mastebademjan from '../img/maste-bademjan.jpg'
+import boranysfenag from '../img/borany-sfenag.jpg'
+import sopejo from '../img/sope-jo.jpg'
+import cholokareh from '../img/cholo-kareh.jpeg'
+import cholokebabloghmezaeferany from '../img/cholo-kebab-loghme-zaeferany.jpeg'
+import mirzaghasemi from '../img/mirza-ghasemi.jpeg'
+import khorakshamigilanni from '../img/khorak-shami-gilanni.jpeg'
+import noshabeghoti from '../img/noshabe-ghoti.jpg'
+import cholojojehkebab from '../img/cholo-jojeh-kebab.jpg'
+import khorakjojehkebab from '../img/khorak-jojeh-kebab.jpeg'
+import zereshkpolobamorghsorkh from '../img/zereshk-polo-ba-morgh-sorkh.jpeg'
+import cholokhoreshtghoremesabzi from '../img/cholo-khoresht-ghoreme-sabzi.jpeg'
+import cholokhoreshtgheymesibzaminy from '../img/cholo-khoresht-gheyme-sibzaminy.jpeg'
+import pizzapeperony from '../img/pizza-peperony.jpg'
+import pizzabiken from '../img/pizza-biken.jpeg'
+import pizzamargarita from '../img/pizza-margarita.jpg'
+import pizzasalamy from '../img/pizza-salamy.jpeg'
+import baghlavatabrizy from '../img/baghlava-tabrizy.jpeg'
+import kashkbademjan from '../img/kashk-bademjan.jpeg'
+import saladfasl from '../img/salad-fasl.jpeg'
+import saladshirazi from '../img/salad-shirazi.jpeg'
+import gazsfehan from '../img/gaz-sfehan.jpeg'
+import zabangosandi from '../img/zaban-gosandi.jpg'
+import magzgosfand from '../img/magz-gosfand.jpg'
+import sirabshirdansofaly from '../img/sirab-shirdan-sofaly.jpeg'
+import sirabmagzsofaly from '../img/sirab-magz-sofaly.jpeg'
+import limotorsh from '../img/limo-torsh.jpeg'
+
+import googlemaps from '../img/googlemap.jpg';
 import LogoAsadorEtxebarri from '../img/Logo-For-Asador-Etxebarri.jpg';
 import LogoCentral from '../img/Logo-For-Central.jpg';
-import LogoGeranium from '../img/Logo-For-Geranium.png';
-import LogoNoma from '../img/Logo-For-Noma.png';
+import LogoGeranium from '../img/Logo-For-Geranium.jpg';
+import LogoNoma from '../img/Logo-For-Noma.jpg';
 import LogoAlbino from '../img/Logo-For-Albino-Resturant.jpg';
-import LogoHamber from '../img/Logo-For-Hamber-Resturant.png';
+import LogoHamber from '../img/Logo-For-Hamber-Resturant.jpg';
 import LogoResturantfake from '../img/Logo-For-Resturantfake.jpg';
-import LogoTagline from '../img/Logo-For-Tagline-Here.png';
+import LogoTagline from '../img/Logo-For-Tagline-Here.jpg';
+
 
 const GlobalState = ({ children }) => {
 
     const [getResturant, changeResturant] = useState([
-        { id: uniqid(), name: "AsadorEtxebarri", logo: LogoAsadorEtxebarri, foods: "", orderfood: [] },
+        {
+            id: uniqid(), name: "AsadorEtxebarri", logo: LogoAsadorEtxebarri, foods: [
+                { id: uniqid(), numberorder: 0, picture: halim, namefood: "halim", descriptionfood: "a food great and perfect and nice", price: 50 },
+                { id: uniqid(), numberorder: 0, picture: ashreshteh, namefood: "ash reshteh", descriptionfood: "a food perfect and nice and great", price: 80 },
+                { id: uniqid(), numberorder: 0, picture: sholezard, namefood: "shole zard", descriptionfood: "a food great and perfect and nice", price: 65 },
+                { id: uniqid(), numberorder: 0, picture: mastebademjan, namefood: "maste bademjan", descriptionfood: "a food perfect and nice and great", price: 100 },
+                { id: uniqid(), numberorder: 0, picture: boranysfenag, namefood: "borany sfenag", descriptionfood: "a food great and perfect and nice", price: 90 },
+                { id: uniqid(), numberorder: 0, picture: sopejo, namefood: "sope jo", descriptionfood: "a food perfect and nice and great", price: 30 }
+            ], orderfood: []
+        },
         {
             id: uniqid(), name: "Hamber", logo: LogoHamber, foods: [
                 { id: uniqid(), numberorder: 0, picture: ghormehsabziimage, namefood: "ghormesabzi", descriptionfood: "a food great and perfect and nice", price: 50 },
@@ -33,17 +74,58 @@ const GlobalState = ({ children }) => {
             ], orderfood: []
         },
 
-        { id: uniqid(), name: "Geranium", logo: LogoGeranium, foods: "", orderfood: [] },
-
-        { id: uniqid(), name: "Noma", logo: LogoNoma, foods: "", orderfood: [] },
-
         {
-            id: uniqid(), name: "Tagline", logo: LogoTagline, foods: "", orderfood: []
+            id: uniqid(), name: "Geranium", logo: LogoGeranium, foods: [
+                { id: uniqid(), numberorder: 0, picture: cholokareh, namefood: "cholo kareh", descriptionfood: "a food great and perfect and nice", price: 50 },
+                { id: uniqid(), numberorder: 0, picture: cholokebabloghmezaeferany, namefood: "cholo kebab loghme zaeferany", descriptionfood: "a food perfect and nice and great", price: 80 },
+                { id: uniqid(), numberorder: 0, picture: mirzaghasemi, namefood: "mirza ghasemi", descriptionfood: "a food great and perfect and nice", price: 65 },
+                { id: uniqid(), numberorder: 0, picture: khorakshamigilanni, namefood: "khorakshamigilanni", descriptionfood: "a food great and perfect and nice", price: 90 },
+                { id: uniqid(), numberorder: 0, picture: noshabeghoti, namefood: "noshabe ghoti", descriptionfood: "a food perfect and nice and great", price: 100 }
+            ], orderfood: []
         },
 
-        { id: uniqid(), name: "Central", logo: LogoCentral, foods: "", orderfood: [] },
+        {
+            id: uniqid(), name: "Noma", logo: LogoNoma, foods: [
+                { id: uniqid(), numberorder: 0, picture: cholojojehkebab, namefood: "cholo jojeh kebab", descriptionfood: "a food great and perfect and nice", price: 50 },
+                { id: uniqid(), numberorder: 0, picture: khorakjojehkebab, namefood: "khorak jojeh kebab", descriptionfood: "a food perfect and nice and great", price: 80 },
+                { id: uniqid(), numberorder: 0, picture: zereshkpolobamorghsorkh, namefood: "zereshk polo ba morgh sorkh", descriptionfood: "a food great and perfect and nice", price: 65 },
+                { id: uniqid(), numberorder: 0, picture: cholokhoreshtghoremesabzi, namefood: "cholo khoresht ghoreme sabzi", descriptionfood: "a food great and perfect and nice", price: 90 },
+                { id: uniqid(), numberorder: 0, picture: cholokhoreshtgheymesibzaminy, namefood: "cholo khoresht gheyme sibzaminy", descriptionfood: "a food perfect and nice and great", price: 100 }
+            ], orderfood: []
+        },
 
-        { id: uniqid(), name: "Resturantfake", logo: LogoResturantfake, foods: "", orderfood: [] },
+        {
+            id: uniqid(), name: "Tagline", logo: LogoTagline, foods: [
+                { id: uniqid(), numberorder: 0, picture: pizzapeperony, namefood: "pizza peperony", descriptionfood: "a food great and perfect and nice", price: 50 },
+                { id: uniqid(), numberorder: 0, picture: "", namefood: "pizza rost biff", descriptionfood: "a food perfect and nice and great", price: 80 },
+                { id: uniqid(), numberorder: 0, picture: "", namefood: "pizza stayk", descriptionfood: "a food great and perfect and nice", price: 65 },
+                { id: uniqid(), numberorder: 0, picture: "", namefood: "pizza mix", descriptionfood: "a food great and perfect and nice", price: 90 },
+                { id: uniqid(), numberorder: 0, picture: pizzamargarita, namefood: "pizza margarita", descriptionfood: "a food perfect and nice and great", price: 100 },
+                { id: uniqid(), numberorder: 0, picture: pizzabiken, namefood: "pizza biken", descriptionfood: "a food perfect and nice and great", price: 100 },
+                { id: uniqid(), numberorder: 0, picture: "", namefood: "pizza morgh", descriptionfood: "a food perfect and nice and great", price: 100 },
+                { id: uniqid(), numberorder: 0, picture: pizzasalamy, namefood: "pizza salamy", descriptionfood: "a food perfect and nice and great", price: 100 }
+            ], orderfood: []
+        },
+
+        {
+            id: uniqid(), name: "Central", logo: LogoCentral, foods: [
+                { id: uniqid(), numberorder: 0, picture: baghlavatabrizy, namefood: "baghlava tabrizy", descriptionfood: "a food great and perfect and nice", price: 50 },
+                { id: uniqid(), numberorder: 0, picture: kashkbademjan, namefood: "kashk bademjan", descriptionfood: "a food perfect and nice and great", price: 80 },
+                { id: uniqid(), numberorder: 0, picture: saladfasl, namefood: "salad fasl", descriptionfood: "a food great and perfect and nice", price: 65 },
+                { id: uniqid(), numberorder: 0, picture: saladshirazi, namefood: "salad shirazi", descriptionfood: "a food great and perfect and nice", price: 90 },
+                { id: uniqid(), numberorder: 0, picture: gazsfehan, namefood: "gaz sfehan", descriptionfood: "a food perfect and nice and great", price: 100 },
+            ], orderfood: []
+        },
+
+        {
+            id: uniqid(), name: "Resturantfake", logo: LogoResturantfake, foods: [
+                { id: uniqid(), numberorder: 0, picture: zabangosandi, namefood: "zaban gosandi", descriptionfood: "a food great and perfect and nice", price: 50 },
+                { id: uniqid(), numberorder: 0, picture: magzgosfand, namefood: "magz gosfand", descriptionfood: "a food perfect and nice and great", price: 80 },
+                { id: uniqid(), numberorder: 0, picture: sirabshirdansofaly, namefood: "sirab shirdan sofaly", descriptionfood: "a food great and perfect and nice", price: 65 },
+                { id: uniqid(), numberorder: 0, picture: sirabmagzsofaly, namefood: "sirab magz sofaly", descriptionfood: "a food great and perfect and nice", price: 90 },
+                { id: uniqid(), numberorder: 0, picture: limotorsh, namefood: "limo torsh", descriptionfood: "a food perfect and nice and great", price: 100 },
+            ], orderfood: []
+        },
 
         { id: uniqid(), name: "Albino", logo: LogoAlbino, foods: "", orderfood: [] },
     ]);
