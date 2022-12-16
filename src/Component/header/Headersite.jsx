@@ -78,7 +78,7 @@ const Headersite = () => {
             <div className="d-flex flex-column align-items-center " style={{ zIndex: "5", position: "absolute", margin: "0 16% 0 0" }}>
                 <button className="btn rounded" style={{ backgroundColor: "white", border: "1px solid #ededed" }} onClick={() => cookieremove()}>Logout</button>
             </div>
-        letshowpropertieloginsm = 
+        letshowpropertieloginsm =
             <div className="d-flex flex-column align-items-center " style={{ zIndex: "5", position: "absolute", margin: "0 10% 0 0" }}>
                 <button className="btn rounded" style={{ backgroundColor: "white", border: "1px solid #ededed" }} onClick={() => cookieremove()}>Logout</button>
             </div>
@@ -143,12 +143,14 @@ const Headersite = () => {
                 <div className="row d-flex align-items-center mx-3">
                     <div className="col-md-2 d-flex justify-content-start">
                         <FontAwesomeIcon icon={logomenu} onClick={() => setIsMenuOpen(oldState => !oldState)} style={{ cursor: "pointer" }} />
-                        <FontAwesomeIcon icon={faMap} className='text-warning ms-5' />
                     </div>
                     <div className="col-md-8 d-flex align-items-center justify-content-center">
                         <input type="Search" className="px-5 py-1 rounded search-input" placeholder="Search in the restaurant" />
                     </div>
                     <div className="col-2 col-md-2 d-flex justify-content-center align-items-center">
+                        <button className="btn">
+                            <FontAwesomeIcon icon={faMap} className='text-warning rounded-circle px-1 shadow-lg' />
+                        </button>
                         {letshowpropertieloginmd}
                         {userboxorloginmdsm}
                     </div>
