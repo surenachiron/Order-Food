@@ -3,6 +3,17 @@
     font-weight: 600;
 }
 
+.hoverresultsearch:hover {
+    transition: 0.5s;
+    color: white;
+    background-color: #353535 !important;
+}
+
+.hoverlittleorgreatresultsearch:hover {
+    transition: 0.5s;
+    background-color: #eeeeee !important;
+}
+
 .shopingcard-header {
     transform: translate(-64%, -22%) !important;
 }
@@ -33,10 +44,7 @@
     text-decoration: none !important;
     color: black !important;
 }
-li{
-    border-bottom: 1px solid #ebebeb;
-    margin-bottom: 12px;
-}
-ul{
+
+ul {
     padding: 0 2rem 0 2rem !important;
 }

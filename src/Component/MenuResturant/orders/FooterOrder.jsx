@@ -76,7 +76,7 @@ const FooterOrder = ({ resturantorder, nameresturant }) => {
                         </div>
                         <div className="d-flex">
                             <h6 className="text-dark">TX :</h6>
-                            <h6 className="text-muted mx-3">FREE</h6>
+                            <h6 className="text-muted mx-3">9%</h6>
                         </div>
                         <div className="d-flex">
                             <h6 className="text-dark">Seller Courier :</h6>
@@ -84,7 +84,7 @@ const FooterOrder = ({ resturantorder, nameresturant }) => {
                         </div>
                         <div className="d-flex">
                             <h6 className="text-dark">Payable :</h6>
-                            <h6 className="text-muted mx-3">${sum + 5}</h6>
+                            <h6 className="text-muted mx-3">${((sum * 109) / 100) + 5}</h6>
                         </div>
                     </div>
                 </div>

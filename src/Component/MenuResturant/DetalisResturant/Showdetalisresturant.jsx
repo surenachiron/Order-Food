@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock, faCreditCard, faInfo, faMap, faShoppingCart, faStar } from '@fortawesome/fontawesome-free-solid'
-import { Modal, Button, ModalFooter } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './fordetalisresturants.css'
 import { useLocation } from 'react-router-dom'
-import ContextOrderFood from "../../../container/ContextOrderFood";
+import ContextOrderFood from "../../../context/ContextOrderFood";
 
 const Showdetalisresturant = () => {
 

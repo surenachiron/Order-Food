@@ -8,7 +8,7 @@ import ReactLoading from 'react-loading';
 import { toast } from 'react-toastify'
 import Cookies from 'universal-cookie';
 
-import LogoWebSite from './logo.jpg'
+import LogoWebSite from '../../img/logo.jpg'
 import './loginandregistercss.css'
 
 const Registerr = () => {

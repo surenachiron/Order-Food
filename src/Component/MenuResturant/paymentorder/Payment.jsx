@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { useContext } from "react";
-import ContextOrderFood from "../../../container/ContextOrderFood";
+import ContextOrderFood from "../../../context/ContextOrderFood";
 
 const Payment = () => {
 
@@ -25,7 +25,7 @@ const Payment = () => {
                         </div>
                         <div className="d-flex">
                             <h6 className="text-dark fw-bold">TX :</h6>
-                            <h6 className="text-muted mx-3">FREE</h6>
+                            <h6 className="text-muted mx-3">9%</h6>
                         </div>
                         <div className="d-flex">
                             <h6 className="text-dark fw-bold">Seller Courier :</h6>
@@ -33,7 +33,7 @@ const Payment = () => {
                         </div>
                         <div className="d-flex">
                             <h6 className="text-dark fw-bold">Payable :</h6>
-                            <h6 className="text-muted mx-3 ">${sum + 5}</h6>
+                            <h6 className="text-muted mx-3">${((sum * 109) / 100) + 5}</h6>
                         </div>
                     </div>
                 </div>

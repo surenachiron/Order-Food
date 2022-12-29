@@ -1,13 +1,13 @@
-import React, { Fragment, useContext } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Footersite from "../Component/Footer/Footersite";
 import Headersite from "../Component/header/Headersite";
-import Layoutorderpaymet from "../Component/MenuResturant/orderResponsiv/Layoutorderpaymet";
-import Loginn from "../Component/loginandregister/Loginn";
-import Registerr from "../Component/loginandregister/Registerr";
+import Layoutorderpaymet from "../Component/MenuResturant/paymentorder/Layoutorderpaymet";
+import Loginn from "../Component/auth/Loginn";
+import Registerr from "../Component/auth/Registerr";
 import CollectingComponentsHomepage from "../Component/home-Page/layout/CollectingComponentsHomepage";
 import CollectingComponentsMenuResturant from "../Component/MenuResturant/layout/CollectingComponentsMenuResturant";
-import ContextOrderFood from "./ContextOrderFood";
+import ContextOrderFood from "../context/ContextOrderFood";
 
 
 const Paginition = () => {
@@ -24,6 +24,10 @@ const Paginition = () => {
         header = <Headersite />
         footer = <Footersite />
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [location.pathname])
 
     return (
         <Fragment>

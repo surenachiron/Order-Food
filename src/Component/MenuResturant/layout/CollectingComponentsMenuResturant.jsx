@@ -4,10 +4,10 @@ import Showdetalisresturant from "../DetalisResturant/Showdetalisresturant";
 import MapforOrder from "../orders/MapforOrder";
 import HeaderOrder from "../orders/HeaderOrder";
 import FooterOrder from "../orders/FooterOrder";
+import ContextOrderFood from "../../../context/ContextOrderFood";
 
 import { useLocation } from 'react-router-dom'
 import { Scrollbars } from 'react-custom-scrollbars';
-import ContextOrderFood from "../../../container/ContextOrderFood";
 
 const CollectingComponentsMenuResturant = () => {
 
@@ -18,6 +18,7 @@ const CollectingComponentsMenuResturant = () => {
     useEffect(() => {
         window.addEventListener("resize", updateDimensions);
         return () => window.removeEventListener("resize", updateDimensions);
+
     }, []);
 
     const context = useContext(ContextOrderFood)
@@ -45,7 +46,7 @@ const CollectingComponentsMenuResturant = () => {
                         <div className="col-12 col-xl-3 col-lg-4 col-md-12 col-sm-12">
                             <div className="position-sticky" style={{ top: '4.8rem' }}>
                                 <HeaderOrder lenghorder={foodsresturant.orderfood.length} />
-                                <Scrollbars  style={{width:320,height: 420 }}>
+                                <Scrollbars style={{ width: 320, height: 420 }}>
                                     <div className="border border-muted rounded">
                                         <MapforOrder lenghorder={foodsresturant.orderfood} />
                                     </div>

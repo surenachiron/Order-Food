@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { NavLink } from 'react-router-dom';
 
-import Logosite from './logo.jpg'
+import Logosite from '../../img/logo.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTelegram, faTwitter, faInstagram, faLinkedin, faDiscord } from '@fortawesome/free-brands-svg-icons'
 import './cssforFooter.css'

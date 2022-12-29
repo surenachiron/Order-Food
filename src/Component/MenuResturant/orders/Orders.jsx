@@ -40,7 +40,7 @@ const Orders = ({ nameFoodOrder, price, numberorderr, AddinOrderFood, DeletinOrd
                         <button type="button" className={`${MinesNoneOrFlex} btn btn-sm rounded-pill border`} style={{ width: '2rem', height: '2rem' }} onClick={MinesinOrderFood}>-
                         </button>
 
-                        <button type="button" className="btn btn-sm btn-warning rounded-pill btnproforshownumberorder mx-1" style={{ width: '2rem', height: '2rem' }}>{numberorderr}
+                        <button type="button" className="btn btn-sm btn-warning rounded-pill btnproforshownumberorder mx-1" style={{ width: '2.1rem', height: '2rem' }}>{numberorderr}
                         </button>
 
                         <button type="button" className="btn btn-sm rounded-pill border" style={{ width: '2rem', height: '2rem' }} onClick={AddinOrderFood}>+

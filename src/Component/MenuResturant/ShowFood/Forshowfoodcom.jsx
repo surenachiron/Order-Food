@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import ShowFoodcom from "./ShowFoodcom";
 import { useNavigate, useLocation } from "react-router";
-import ContextOrderFood from "../../../container/ContextOrderFood";
+import ContextOrderFood from "../../../context/ContextOrderFood";
 import { Modal } from "react-bootstrap";
 import Modallogin from "../orders/Modalloginregister/Modallogin";
 import Modallregister from "../orders/Modalloginregister/Modalregister";
@@ -107,7 +107,7 @@ const Forshowfoodcom = () => {
     } else {
         contentmain =
             <ShowFoodcom
-                notfoos={`${location.pathname.slice(1)} resturant not foods for order and show`}
+                notfoos={`${location.pathname.slice(1)} restaurant does not have food to order or display`}
                 nameresturant={foodsresturant.name}
             >
             </ShowFoodcom>

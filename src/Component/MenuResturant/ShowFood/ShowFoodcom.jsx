@@ -70,7 +70,8 @@ const ShowFoodcom = ({ picture, nameFood, descriptionFood, price, numberorderr, 
                             <button type="button" className={`${MinesNoneOrFlex} btn btn-sm rounded-pill border`} style={{ width: '2rem', height: '2rem' }} onClick={Minesorder}>-
                             </button>
 
-                            <button type="button" className="btn btn-sm btn-warning rounded-pill btnproforshownumberorder mx-1" style={{ width: '2rem', height: '2rem' }}>{numberorderr}
+
+                            <button type="button" className="btn btn-sm btn-warning rounded-pill btnproforshownumberorder mx-1" style={{ width: '2.1rem', height: '2rem' }}>{numberorderr}
                             </button>
 
                             <button type="button" className="btn btn-sm rounded-pill border" style={{ width: '2rem', height: '2rem' }} onClick={AddedOrder}>+
@@ -83,7 +84,7 @@ const ShowFoodcom = ({ picture, nameFood, descriptionFood, price, numberorderr, 
             </div>
     } else {
         classimportantforshow = "w-100"
-        contentmain = <div className="h-100 d-flex align-items-center justify-content-center text-danger"><h2>{notfoos}</h2></div>
+        contentmain = <div className="h-100 d-flex align-items-center justify-content-center text-danger"><h3>{notfoos}</h3></div>
     }
 
     return (

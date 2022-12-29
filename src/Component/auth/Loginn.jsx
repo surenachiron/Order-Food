@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { Helmet } from 'react-helmet'
 import ReactLoading from 'react-loading';
 
-import LogoWebSite from './logo.jpg'
+import LogoWebSite from '../../img/logo.jpg'
 import './loginandregistercss.css'
 
 const Loginn = () => {
@@ -110,7 +110,7 @@ const Loginn = () => {
                                     <div className="input-group">
 
                                         <label for='inputEmail' className="mt-2 forlabel">enter Email</label>
-                                        <input type='email' name="email" id="inputEmail" className="form-control mt-2 w-100 text-start" value={getemail} aria-describedby="email-address" aria onChange={e => {
+                                        <input type='email' name="email" id="inputEmail" className="form-control mt-2 w-100 text-start rounded" value={getemail} aria-describedby="email-address" aria onChange={e => {
                                             setEmail(e.target.value);
                                             Validator.current.showMessageFor('email')
                                         }} />
@@ -122,13 +122,12 @@ const Loginn = () => {
                                     <div className="input-group">
                                         <label for='password' className="forlabel mt-3">enter Password</label>
 
-                                        <input type='password' name="password" id="password" className='form-control mt-2 w-100 text-start boxshadowbutton' aria-describedby="password" value={getpassword} onChange={e => {
+                                        <input type='password' name="password" id="password" className='form-control mt-2 w-100 text-start rounded' aria-describedby="password" value={getpassword} onChange={e => {
                                             setPassword(e.target.value);
                                             Validator.current.showMessageFor('password')
                                         }} />
 
                                         {Validator.current.message('password', getpassword, 'required|min:6')}
-
                                     </div>
 
                                     <button className="btn btn-warning w-100 mt-3 mb-2">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ContextOrderFood from "./ContextOrderFood";
+import ContextOrderFood from "../context/ContextOrderFood";
 import uniqid from 'uniqid';
 
 import ghormehsabziimage from '../img/ghormeh-sabzi-for-Order-Food.jpg';
@@ -76,7 +76,7 @@ const GlobalState = ({ children }) => {
 
         {
             id: uniqid(), name: "Geranium", logo: LogoGeranium, foods: [
-                { id: uniqid(), numberorder: 0, picture: cholokareh, namefood: "cholo kareh", descriptionfood: "a food great and perfect and nice", price: 50 },
+                { id: uniqid(), numberorder: 0, picture: cholokareh, namefood: "dizi", descriptionfood: "a food great and perfect and nice", price: 50 },
                 { id: uniqid(), numberorder: 0, picture: cholokebabloghmezaeferany, namefood: "cholo kebab loghme zaeferany", descriptionfood: "a food perfect and nice and great", price: 80 },
                 { id: uniqid(), numberorder: 0, picture: mirzaghasemi, namefood: "mirza ghasemi", descriptionfood: "a food great and perfect and nice", price: 65 },
                 { id: uniqid(), numberorder: 0, picture: khorakshamigilanni, namefood: "khorakshamigilanni", descriptionfood: "a food great and perfect and nice", price: 90 },
