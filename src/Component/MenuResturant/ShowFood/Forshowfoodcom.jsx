@@ -117,7 +117,7 @@ const Forshowfoodcom = () => {
         <div className="row row-cols-1 row-cols-md-2 g-4 w-100 m-auto h-100">
             {contentmain}
             <div className="w-100 d-flex align-items-center justify-content-center">
-                <div style={{ width: "98%" }} className="position-fixed bottom-0 container">
+                <div style={{ width: "98%" }} className="position-fixed bottom-0 container mb-2">
                     {paymentorder}
                 </div>
                 {loginmodal}
