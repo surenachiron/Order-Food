@@ -8,7 +8,8 @@ import Registerr from "../Component/auth/Registerr";
 import CollectingComponentsHomepage from "../Component/home-Page/layout/CollectingComponentsHomepage";
 import CollectingComponentsMenuResturant from "../Component/MenuResturant/layout/CollectingComponentsMenuResturant";
 import ContextOrderFood from "../context/ContextOrderFood";
-
+import Page404 from "../Component/404/Page404";
+import Resultsearchoutpage from "../Component/search/Resultsearchoutpage";
 
 const Paginition = () => {
 
@@ -19,9 +20,12 @@ const Paginition = () => {
     let footer = ''
     if (location.pathname === "/login" || location.pathname === "/register") {
         header = ''
-        footer = ''
     } else {
         header = <Headersite />
+    }
+    if (location.pathname !== "/" && location.pathname !== "/shoppingcart") {
+        footer = ""
+    } else {
         footer = <Footersite />
     }
 
@@ -33,6 +37,7 @@ const Paginition = () => {
         <Fragment>
             {header}
             <Routes>
+                <Route path="/resultsearch/:textsearch" element={<Resultsearchoutpage />} />
                 <Route path="/shoppingcart" element={<Layoutorderpaymet />} />
                 <Route path="/login" element={<Loginn />} />
                 <Route path="/register" element={<Registerr />} />
@@ -40,6 +45,7 @@ const Paginition = () => {
                     <Route path={o.name} element={<CollectingComponentsMenuResturant />} />
                 ))}
                 <Route path="/" exact element={<CollectingComponentsHomepage />} />
+                <Route path="*" element={<Page404 />} />
             </Routes>
             {footer}
         </Fragment>

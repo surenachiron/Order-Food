@@ -26,7 +26,6 @@ const MapforOrderResponsiv = () => {
                 </button>
             </div>
     }
-    console.log(findresturant)
     return (
         <Fragment>
             {Trash}
