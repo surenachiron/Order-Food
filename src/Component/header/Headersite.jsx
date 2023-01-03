@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import Mobilmenu from "./Mobilmenu";
 import LogoWebSite from '../../img/logo.jpg'
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import Cookies from 'universal-cookie';
 import Resultsearchinpage from "./Resultsearchinpage";
 
@@ -13,6 +13,7 @@ import './headdrcss.css'
 
 const Headersite = () => {
 
+    const location = useLocation();
     const cookies = new Cookies();
     const navigate = useNavigate();
     const ref = useRef()
@@ -22,6 +23,11 @@ const Headersite = () => {
 
     const onoff = () => setShowpropertylogin(!getShowpropertylogin)
     const onoff2 = () => setShowboxsearch(!getShowboxsearch)
+
+    useEffect(() => {
+        setShowpropertylogin(false)
+        setShowboxsearch(false)
+    }, [location.pathname])
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -72,11 +78,10 @@ const Headersite = () => {
     let letshowsearchbox = ""
     if (getShowboxsearch === true) {
         letshowsearchbox =
-            <div className="d-flex flex-column align-items-center bg-white py-1" style={{ zIndex: "5", position: "absolute", margin: "0 18% 0 0" }}>
+            <div className="py-1 m-auto" style={{position: "absolute", width:"97%"}}>
                 <Resultsearchinpage />
             </div>
-        testforhide = "d-none"
-    } else testforhide = "d-flex"
+    }
 
     let letshowpropertielogin = ""
     if (getShowpropertylogin === true && cookies.get("user") !== null && cookies.get("user") !== undefined && cookies.get("user") !== "") {
@@ -133,7 +138,6 @@ const Headersite = () => {
                         {userboxorlogin}
                         {letshowpropertielogin}
                     </div>
-
                 </div>
             </div>
     } else if (widthscreen >= 768) {
@@ -155,26 +159,26 @@ const Headersite = () => {
             </div>
     } else {
         largepageOrresponsivpage =
-            <div className="container shadowheader">
-                <div className="row m-auto d-flex justify-content-end align-items-center">
-                    <div className="col-1 col-sm-1 d-flex justify-content-end">
-                        <FontAwesomeIcon icon={logomenu} onClick={() => setIsMenuOpen(oldState => !oldState)} style={{ cursor: "pointer" }} />
-                    </div>
-                    <div className="col-10 col-sm-10 d-flex justify-content-center align-items-center">
-                        <NavLink to='/' className=''>
-                            <img src={LogoWebSite} alt='logosite' height='50px' width="80px" />
-                        </NavLink>
-                    </div>
-                    <div className="col-1 col-sm-1 d-flex justify-content-end align-items-center">
-                        <FontAwesomeIcon icon={faSearch} className='btn text-warning rounded-circle px-1 shadow-lg' onClick={onoff2} />
-                        {letshowsearchbox}
-                        <FontAwesomeIcon icon={faMap} className={`btn text-warning rounded-circle px-1 shadow-lg ${testforhide}`} />
-                        {/* <div > */}
-                        {letshowpropertielogin}
-                        {userboxorloginmdsm}
-                        {/* </div> */}
+            <div>
+                <div className="container shadowheader">
+                    <div className="row m-auto d-flex justify-content-end align-items-center">
+                        <div className="col-1 col-sm-1 d-flex justify-content-end">
+                            <FontAwesomeIcon icon={logomenu} onClick={() => setIsMenuOpen(oldState => !oldState)} style={{ cursor: "pointer" }} />
+                        </div>
+                        <div className="col-10 col-sm-10 d-flex justify-content-center align-items-center">
+                            <NavLink to='/' className=''>
+                                <img src={LogoWebSite} alt='logosite' height='50px' width="80px" />
+                            </NavLink>
+                        </div>
+                        <div className="col-1 col-sm-1 d-flex justify-content-end align-items-center">
+                            <FontAwesomeIcon icon={faSearch} className='btn text-warning rounded-circle px-1 shadow-lg' onClick={onoff2} />
+                            <FontAwesomeIcon icon={faMap} className={`btn text-warning rounded-circle px-1 shadow-lg ${testforhide}`} />
+                            {letshowpropertielogin}
+                            {userboxorloginmdsm}
+                        </div>
                     </div>
                 </div>
+                {letshowsearchbox}
             </div>
 
     }

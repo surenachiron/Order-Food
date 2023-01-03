@@ -50,7 +50,7 @@ const Resultsearchinpage = () => {
     return (
         <Fragment>
             <div id="Search" className="col-lg-4 col-md-8 d-flex align-items-center justify-content-center">
-                <div className="px-3 py-1 rounded search-input">
+                <div className="px-3 py-1 rounded search-input bg-white">
                     <input id='searchboxx' type="text" className="border-0" placeholder="Search in the restaurant" onChange={handleshowfoodfortextsearch} />
                     <NavLink to={`/resultsearch/${gettextsearch}`}>
                         <FontAwesomeIcon icon={faSearch} color="orange" style={{ cursor: "pointer" }} onClick={testtt} />
