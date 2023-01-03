@@ -61,7 +61,7 @@ const Resultsearchinpage = () => {
                         {(getresultsearchboxgreat.length > 0) ? (
                             <Fragment>
                                 {(getresultsearchboxgreat.length > 2) ? (
-                                    <div>
+                                    <div className="w-100">
                                         {getresultsearchboxlittle.map(o => (
                                             <NavLink to={`/${o.nameres}`} className="text-dark">
                                                 <div className="bg-white d-flex justify-content-between align-items-center hoverresultsearch" style={{ border: "1px solid #e5e5e5", borderRadius: "15px", padding: '2px 13px', width: "85vh" }}>
@@ -76,7 +76,7 @@ const Resultsearchinpage = () => {
                                             </NavLink>
                                         ))}
                                         <NavLink to={`/resultsearch/${gettextsearch}`}>
-                                            <div className="bg-white text-center hoverlittleorgreatresultsearch text-muted" style={{ border: "1px solid #e5e5e5", borderRadius: "15px", padding: '2px 13px', width: "85vh", cursor: "pointer" }} >
+                                            <div className="bg-white text-center hoverlittleorgreatresultsearch text-muted w-100" style={{ border: "1px solid #e5e5e5", borderRadius: "15px", padding: '2px 13px', width: "85vh", cursor: "pointer" }} >
                                                 show more food
                                             </div>
                                         </NavLink>
@@ -84,7 +84,7 @@ const Resultsearchinpage = () => {
                                 ) :
                                     (getresultsearchboxlittle.map(o => (
                                         <NavLink to={`/${o.nameres}`} className="text-dark">
-                                            <div className="bg-white d-flex justify-content-between align-items-center hoverresultsearch" style={{ border: "1px solid #e5e5e5", borderRadius: "15px", padding: '2px 13px', width: "85vh" }}>
+                                            <div className="bg-white d-flex justify-content-between align-items-center hoverresultsearch w-100" style={{ border: "1px solid #e5e5e5", borderRadius: "15px", padding: '2px 13px', width: "85vh" }}>
                                                 <img src={o.img} alt="pic img search" width='40' height='40' />
                                                 <h6>{o.namefood}</h6>
                                                 <span className="text-warning">${o.price}</span>

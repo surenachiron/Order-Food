@@ -74,11 +74,10 @@ const Headersite = () => {
         navigate('/', { replace: true })
     }
 
-    let testforhide = "";
     let letshowsearchbox = ""
     if (getShowboxsearch === true) {
         letshowsearchbox =
-            <div className="py-1 m-auto" style={{position: "absolute", width:"97%"}}>
+            <div className="py-1" style={{ position: "absolute", marginTop: "2.5rem" }}>
                 <Resultsearchinpage />
             </div>
     }
@@ -86,7 +85,7 @@ const Headersite = () => {
     let letshowpropertielogin = ""
     if (getShowpropertylogin === true && cookies.get("user") !== null && cookies.get("user") !== undefined && cookies.get("user") !== "") {
         letshowpropertielogin =
-            <div className={`${testforhide} flex-column align-items-center`} style={{ zIndex: "5", position: "absolute", margin: "0 10% 0 0" }}>
+            <div className={`d-flex flex-column align-items-center`} style={{ zIndex: "5", position: "absolute", margin: "0 10% 0 0" }}>
                 <button className="btn rounded" style={{ backgroundColor: "white", border: "1px solid #ededed" }} onClick={() => cookieremove()}>Logout</button>
             </div>
     }
@@ -102,7 +101,7 @@ const Headersite = () => {
                 </div>
             </div>
         userboxorloginmdsm =
-            <div className={`border rounded-circle ${testforhide} align-items-center justify-content-center p-2 btn`} style={{ height: "30px" }} onClick={() => onoff()}>
+            <div className={`border rounded-circle d-flex align-items-center justify-content-center p-2 btn`} style={{ height: "30px" }} onClick={() => onoff()}>
                 <FontAwesomeIcon icon={faUser} color='orange' />
             </div>
     } else {
@@ -172,13 +171,15 @@ const Headersite = () => {
                         </div>
                         <div className="col-1 col-sm-1 d-flex justify-content-end align-items-center">
                             <FontAwesomeIcon icon={faSearch} className='btn text-warning rounded-circle px-1 shadow-lg' onClick={onoff2} />
-                            <FontAwesomeIcon icon={faMap} className={`btn text-warning rounded-circle px-1 shadow-lg ${testforhide}`} />
+                            <FontAwesomeIcon icon={faMap} className={`btn text-warning rounded-circle px-1 shadow-lg d-flex`} />
                             {letshowpropertielogin}
                             {userboxorloginmdsm}
                         </div>
                     </div>
                 </div>
-                {letshowsearchbox}
+                <div className="w-100 d-flex align-items-center justify-content-center">
+                    {letshowsearchbox}
+                </div>
             </div>
 
     }
