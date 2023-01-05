@@ -47,6 +47,21 @@ const Resultsearchinpage = () => {
     }
 
 
+    const [widthscreen, setWidthCcreen] = useState(window.innerWidth);
+    const updateDimensions = () => {
+        setWidthCcreen(window.innerWidth);
+    }
+
+    useEffect(() => {
+        window.addEventListener("resize", updateDimensions);
+        return () => window.removeEventListener("resize", updateDimensions);
+    }, []);
+
+    let setresultsearch = "";
+    if (widthscreen <= 778) {
+        setresultsearch = "w-100"
+    } else setresultsearch = ""
+
     return (
         <Fragment>
             <div id="Search" className="col-lg-4 col-md-8 d-flex align-items-center justify-content-center">
@@ -64,7 +79,7 @@ const Resultsearchinpage = () => {
                                     <div className="w-100">
                                         {getresultsearchboxlittle.map(o => (
                                             <NavLink to={`/${o.nameres}`} className="text-dark">
-                                                <div className="bg-white d-flex justify-content-between align-items-center hoverresultsearch" style={{ border: "1px solid #e5e5e5", borderRadius: "15px", padding: '2px 13px', width: "85vh" }}>
+                                                <div className={`${setresultsearch} bg-white d-flex justify-content-between align-items-center hoverresultsearch`} style={{ border: "1px solid #e5e5e5", borderRadius: "15px", padding: '2px 13px', width: "85vh" }}>
                                                     <img src={o.img} alt="pic img search" width='40' height='40' />
                                                     <h6>{o.namefood}</h6>
                                                     <span className="text-warning">${o.price}</span>
@@ -83,17 +98,19 @@ const Resultsearchinpage = () => {
                                     </div>
                                 ) :
                                     (getresultsearchboxlittle.map(o => (
-                                        <NavLink to={`/${o.nameres}`} className="text-dark">
-                                            <div className="bg-white d-flex justify-content-between align-items-center hoverresultsearch w-100" style={{ border: "1px solid #e5e5e5", borderRadius: "15px", padding: '2px 13px', width: "85vh" }}>
-                                                <img src={o.img} alt="pic img search" width='40' height='40' />
-                                                <h6>{o.namefood}</h6>
-                                                <span className="text-warning">${o.price}</span>
-                                                <div className="d-flex flex-column">
-                                                    <span>resutran : </span>
-                                                    <span>{o.nameres}</span>
+                                        <div className="w-100">
+                                            <NavLink to={`/${o.nameres}`} className="text-dark">
+                                                <div className={`${setresultsearch} bg-white d-flex justify-content-between align-items-center hoverresultsearch`} style={{ border: "1px solid #e5e5e5", borderRadius: "15px", padding: '2px 13px', width: "85vh" }}>
+                                                    <img src={o.img} alt="pic img search" width='40' height='40' />
+                                                    <h6>{o.namefood}</h6>
+                                                    <span className="text-warning">${o.price}</span>
+                                                    <div className="d-flex flex-column">
+                                                        <span>resutran : </span>
+                                                        <span>{o.nameres}</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </NavLink>
+                                            </NavLink>
+                                        </div>
                                     )))
                                 }
                             </Fragment>
