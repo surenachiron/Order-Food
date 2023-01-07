@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import Paginition from "./Pagintion";
+import Paginition from "./Paginition";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
